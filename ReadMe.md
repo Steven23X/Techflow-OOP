@@ -5,6 +5,7 @@
   - [**TF\_String**](#tf_string)
   - [**TF\_Vector**](#tf_vector)
   - [**TF\_Customer**](#tf_customer)
+  - [**TF\_Product**](#tf_product)
   - [**Features**](#features)
 - [**Task 1**](#task-1)
   - [**Classes**](#classes-1)
@@ -86,11 +87,11 @@ TechFlow is a object-oriented program that simulates a basic online store that s
 
 **Private member variables:**
 
-- first_name
-- last_name
-- address
-- email
-- buget
+- first_name : type TF_String
+- last_name : type TF_String
+- address : type TF_String
+- email : type TF_String
+- buget : type double
 
 **Constructors:**
 
@@ -110,6 +111,32 @@ TechFlow is a object-oriented program that simulates a basic online store that s
 - None at this moment.
   
 ---
+### **TF_Product**
+- is a class that provides personal information about the customer.
+
+**Private member variables:**
+
+- name : type TF_String
+- type : type TF_String
+- price : type double
+
+**Constructors:**
+
+ - Default constructor : initializes name and type to empty strings and price to 0.
+ - Parameterized constructor that takes in the products's name, type, price as arguments.
+ - Copy constructor that creates a new product object with the same values as an existing product object.
+  
+**Destructor:**
+- Frees any dynamically allocated memory when an object of the class is destroyed. (trivial)
+  
+**Overloaded operators:**
+- The stream input operator, operator>>, which allows input from a stream into an object of class Product.
+
+- The stream output operator, operator<<, which allows output of an object of class Product.
+
+**Methods:**
+- discount (int percentage) : applies a discount to the price of an object of the TF_Product class by a percentage specified as an integer.
+- discount (double percentage) : applies a discount to the price of an object of the TF_Product class by a percentage specified as a double.
 ### **Features**
 TBA
 
@@ -122,11 +149,11 @@ TBA
 - [ ] At least 3 classes must be correlated by composition.
 
 ### **Methods**
-- [ ] At least 3 methods that operate on class member data.
-- [ ] At least one method will be overloaded.
+- [X] At least 3 methods that operate on class member data.
+- [X] At least one method will be overloaded.
 
 ### **Input and Output**
-- [ ] For at least one class overload the operator << and operator >>.
+- [X] For at least one class overload the operator << and operator >>.
 
 ### **Dynamic Allocation**
 Both TF_String and TF_Vector use Dynamic Allocation. 

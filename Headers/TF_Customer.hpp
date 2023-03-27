@@ -9,11 +9,11 @@ class TF_Customer
     TF_String last_name;
     TF_String address;
     TF_String email;
-    int budget;
+    double budget;
 
 public:
     TF_Customer();
-    TF_Customer(TF_String &first_name, TF_String &last_name, TF_String &address, TF_String &email, int budget);
+    TF_Customer(TF_String &first_name, TF_String &last_name, TF_String &address, TF_String &email, double budget);
     TF_Customer(TF_Customer &other);
     ~TF_Customer();
 

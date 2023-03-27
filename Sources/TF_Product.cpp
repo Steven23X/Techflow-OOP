@@ -5,7 +5,7 @@
 TF_Product::TF_Product() : name(""), type(""), price(0) {}
 
 /// Constructor with three parameters:
-TF_Product::TF_Product(TF_String &name, TF_String &type, float price)
+TF_Product::TF_Product(TF_String &name, TF_String &type, double price)
 {
     this->name = name;
     this->type = type;

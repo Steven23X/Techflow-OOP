@@ -5,7 +5,7 @@
 TF_Customer::TF_Customer() : first_name(""), last_name(""), address(""), email(""), budget(0) {}
 
 /// Constructor with five parameters:
-TF_Customer::TF_Customer(TF_String &first_name, TF_String &last_name, TF_String &address, TF_String &email, int budget)
+TF_Customer::TF_Customer(TF_String &first_name, TF_String &last_name, TF_String &address, TF_String &email, double budget)
 {
     this->first_name = first_name;
     this->last_name = last_name;

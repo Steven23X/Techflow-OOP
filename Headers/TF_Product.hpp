@@ -9,13 +9,13 @@ class TF_Product
     /// Private Variables:
     TF_String name;
     TF_String type;
-    float price;
+    double price;
 
 public:
 
     /// Constructors:
     TF_Product();
-    TF_Product(TF_String &name, TF_String &type, float price);
+    TF_Product(TF_String &name, TF_String &type, double price);
     TF_Product(TF_Product &object);
 
     /// Destructor:
