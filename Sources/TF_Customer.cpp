@@ -1,4 +1,4 @@
-#include "../Headers/TF_Customer.hpp"
+#include "../Headers/TechFlow.hpp"
 #include <iostream>
 
 TF_Customer::TF_Customer() : first_name(""), last_name(""), address(""), email(""), budget(0) {}

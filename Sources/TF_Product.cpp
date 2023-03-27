@@ -1,0 +1,57 @@
+#include "../Headers/TechFlow.hpp"
+#include <iostream>
+
+/// Default Constructor:
+TF_Product::TF_Product() : name(""), type(""), price(0) {}
+
+/// Constructor with three parameter:
+TF_Product::TF_Product(TF_String &name, TF_String &type, float price)
+{
+    this->name = name;
+    this->type = type;
+    this->price = price;
+}
+
+/// Copy Constructor:
+TF_Product::TF_Product(TF_Product &other)
+{
+    this->name = other.name;
+    this->type = other.type;
+    this->price = other.price;
+}
+
+/// Default Destructor (trivial)
+TF_Product::~TF_Product() {}
+
+/// '>>' Operator redefined:
+std::istream &operator>>(std::istream &in, TF_Product &object)
+{
+    std::cout << "Enter type of product: ";
+    in >> object.type;
+    std::cout << "Enter name of product: ";
+    in >> object.name;
+    std::cout << "Enter price of product: ";
+    in >> object.price;
+    return in;
+}
+
+/// '<<' Operator redefined:
+std::ostream &operator<<(std::ostream &out, const TF_Product &object)
+{
+    out << "Type: " << object.type << std::endl;
+    out << "Name: " << object.name << std::endl;
+    out << "Price: " << object.price << std::endl;
+    return out;
+}
+
+/// price after a discount of type int (20%)
+void TF_Product::discount(int percentage)
+{
+    price = price - (price * percentage) / 100;
+}
+
+/// price after a discount of type double (0.2)
+void TF_Product::discount(double percentage)
+{
+    price = price - price * percentage;
+}

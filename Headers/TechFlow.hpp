@@ -5,5 +5,6 @@
 #include "TF_Vector.hpp"
 
 #include "TF_Customer.hpp"
+#include "TF_Product.hpp"
 
 #endif

@@ -2,7 +2,7 @@
 #define _TF_STRING_HPP
 
 #include <iostream>
-#include "TF_String.hpp"
+#include "TechFlow.hpp"
 
 class TF_String
 {
