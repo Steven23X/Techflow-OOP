@@ -4,6 +4,7 @@
 - [**Classes**](#classes)
   - [**TF\_String**](#tf_string)
   - [**TF\_Vector**](#tf_vector)
+  - [**TF\_Customer**](#tf_customer)
   - [**Features**](#features)
 - [**Task 1**](#task-1)
   - [**Classes**](#classes-1)
@@ -79,6 +80,35 @@ TechFlow is a object-oriented program that simulates a basic online store that s
 **Methods:**
 - pushback() : is equivalent to push_back in the standard vector container.
 
+---
+### **TF_Customer**
+- is a class that provides personal information about the customer.
+
+**Private member variables:**
+
+- first_name
+- last_name
+- address
+- email
+- buget
+
+**Constructors:**
+
+ - Default constructor : initializes all member variables to empty strings and budget to 0.
+ - Parameterized constructor that takes in the customer's first name, last name, address, email, and budget as arguments.
+ - Copy constructor that creates a new customer object with the same values as an existing customer object.
+  
+**Destructor:**
+- Frees any dynamically allocated memory when an object of the class is destroyed. (trivial)
+  
+**Overloaded operators:**
+- The stream input operator, operator>>, which allows input from a stream into an object of class Customer.
+
+- The stream output operator, operator<<, which allows output of an object of class Customer.
+
+**Methods:**
+- None at this moment.
+  
 ---
 ### **Features**
 TBA
