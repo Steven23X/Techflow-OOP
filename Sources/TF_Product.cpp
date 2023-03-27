@@ -4,7 +4,7 @@
 /// Default Constructor:
 TF_Product::TF_Product() : name(""), type(""), price(0) {}
 
-/// Constructor with three parameter:
+/// Constructor with three parameters:
 TF_Product::TF_Product(TF_String &name, TF_String &type, float price)
 {
     this->name = name;
