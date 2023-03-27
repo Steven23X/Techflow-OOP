@@ -4,4 +4,6 @@
 #include "TF_String.hpp"
 #include "TF_Vector.hpp"
 
+#include "TF_Customer.hpp"
+
 #endif
