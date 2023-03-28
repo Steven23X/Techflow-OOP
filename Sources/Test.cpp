@@ -27,24 +27,24 @@ int main()
     */
 
     /// TF_Order class testing;
-
-    /*TF_Customer b;
+    /*
+    TF_Customer b;
     std::cin >> b;
-    std::cout<<b;
+    std::cout << b;
     TF_Vector<TF_Product> vec;
     int n = 2;
-    TF_Product prod;
-    std::cin >> prod;
-    for (int i = 0; i < n; i++)
-    {
-        vec.pushback(prod);
-    }
-
-    TF_Order a(b, vec, "hello");
+    TF_String name("Video Card");
+    TF_String type("GTX 234");
+    TF_Product prod1(name, type, 278);
+    TF_Product prod2(name, type, 100);
+    vec.pushback(prod1);
+    vec.pushback(prod2);
     std::cout << vec;
-    std::cout<<a;*/
-
-     /*
+    TF_Order a(b, vec, "hello");
+    std::cout << a;
+    std::cout << a.orderTotal();
+    */
+    /*
     TF_String a, b, c;
     int d;
     std::cin >> a;

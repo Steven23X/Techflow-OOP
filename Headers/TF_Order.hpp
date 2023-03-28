@@ -17,7 +17,7 @@ public:
 
     friend std::ostream &operator<<(std::ostream &out, const TF_Order &object);
 
-    double orderTotal();
+    int orderTotal();
     double addCharge(double charge);
 };
 

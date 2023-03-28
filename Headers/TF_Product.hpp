@@ -5,14 +5,13 @@
 #include <iostream>
 
 class TF_Product
-{   
+{
     /// Private Variables:
     TF_String name;
     TF_String type;
     double price;
 
 public:
-
     /// Constructors:
     TF_Product();
     TF_Product(TF_String &name, TF_String &type, double price);
@@ -28,6 +27,6 @@ public:
     /// Methods:
     void discount(int percentage);
     void discount(double percentage);
-
+    int getPrice();
 };
 #endif

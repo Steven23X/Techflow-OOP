@@ -82,6 +82,32 @@ public:
         data = newData;
         size++;
     }
+
+    /// getter for size
+    int getSize()
+    {
+        return size;
+    }
+
+    /// '[]' Operator redefined:
+    T &operator[](int index)
+    {
+        if (index < 0 || index >= size)
+        {
+            throw std::out_of_range("Invalid index");
+        }
+        return data[index];
+    }
+
+    /// '[]' Operator redefined:
+    const T &operator[](int index) const
+    {
+        if (index < 0 || index >= size)
+        {
+            throw std::out_of_range("Invalid index");
+        }
+        return data[index];
+    }
 };
 
 #endif

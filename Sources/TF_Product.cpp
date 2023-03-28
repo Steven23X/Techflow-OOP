@@ -55,3 +55,9 @@ void TF_Product::discount(double percentage)
 {
     price = price - price * percentage;
 }
+
+/// getter for price
+int TF_Product::getPrice()
+{
+    return price;
+}

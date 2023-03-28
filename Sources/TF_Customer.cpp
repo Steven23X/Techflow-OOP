@@ -14,7 +14,7 @@ TF_Customer::TF_Customer(TF_String &first_name, TF_String &last_name, TF_String 
     this->budget = budget;
 }
 
-/// Copy Constructor 
+/// Copy Constructor
 TF_Customer::TF_Customer(TF_Customer &other)
 {
     this->first_name = other.first_name;

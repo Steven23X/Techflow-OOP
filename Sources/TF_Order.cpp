@@ -35,3 +35,14 @@ std::ostream &operator<<(std::ostream &out, const TF_Order &object)
         << object.date << std::endl;
     return out;
 }
+
+/// Method that returs the total price of all products:
+int TF_Order::orderTotal()
+{
+    total = 0;
+    for (int i = 0; i < products.getSize(); i++)
+    {
+        total += products[i].getPrice();
+    }
+    return total;
+}
