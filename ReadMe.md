@@ -303,6 +303,10 @@
     ``` c++
     int orderTotal();
     ``` 
+- Method that returns the total price after charge.
+    ``` c++
+    double addCharge(double charge);
+    ```  
 ---
 ### **Features**
 TBA

@@ -26,8 +26,9 @@ int main()
     std::cout << a;
     */
 
-    /// TF_Order class testing;
+    /// TF_Order + TF_Vector class testing;
     
+    /*
     TF_Customer b;
     std::cin >> b;
     std::cout << b;
@@ -43,7 +44,9 @@ int main()
     TF_Order a(b, vec, "hello");
     std::cout << a;
     std::cout << a.orderTotal();
-    
+    std::cout << a.addCharge(0.2);
+    */
+
     /*
     TF_String a, b, c;
     int d;

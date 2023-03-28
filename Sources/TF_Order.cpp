@@ -46,3 +46,10 @@ int TF_Order::orderTotal()
     }
     return total;
 }
+
+/// Method that returns the total price after charge:
+double TF_Order::addCharge(double charge)
+{
+    double total = orderTotal() + orderTotal() * charge;
+    return total;
+}
