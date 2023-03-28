@@ -112,7 +112,7 @@ TechFlow is a object-oriented program that simulates a basic online store that s
   
 ---
 ### **TF_Product**
-- is a class that provides personal information about the customer.
+- is a class that provides personal information about the product.
 
 **Private member variables:**
 
@@ -137,6 +137,7 @@ TechFlow is a object-oriented program that simulates a basic online store that s
 **Methods:**
 - discount (int percentage) : applies a discount to the price of an object of the TF_Product class by a percentage specified as an integer.
 - discount (double percentage) : applies a discount to the price of an object of the TF_Product class by a percentage specified as a double.
+---
 ### **Features**
 TBA
 

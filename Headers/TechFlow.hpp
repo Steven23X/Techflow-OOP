@@ -6,5 +6,6 @@
 
 #include "TF_Customer.hpp"
 #include "TF_Product.hpp"
+#include "TF_Order.hpp"
 
 #endif

@@ -54,7 +54,7 @@ public:
     friend std::ostream &operator<<(std::ostream &out, const TF_Vector<T> &vector)
     {
         for (int i = 0; i < vector.size; i++)
-            out << vector.data[i] << " ";
+            out << vector.data[i];
         return out;
     }
 

@@ -1,6 +1,6 @@
 #include "../Headers/TechFlow.hpp"
 #include <iostream>
-
+#include <iomanip>
 /// Default Constructor:
 TF_String::TF_String() : str(nullptr) {}
 
@@ -50,13 +50,12 @@ void TF_String::operator=(TF_String &op2)
 /// '>>' Operator redefined:
 std::istream &operator>>(std::istream &in, TF_String &s)
 {
-    delete[] s.str;
-    const int max_input = 1024;
-    char buffer[max_input];
-    in.getline(buffer, max_input);
-    s.str = new char[s.str_length(buffer) + 1];
-    s.str_copy(s.str, buffer);
-    return in;
+    const int buffSz = 100;	
+	char buff[buffSz];
+	in >> std::setw(buffSz) >> buff;
+	s.str = new char[s.str_length(buff) + 1];
+    s.str_copy(s.str, buff);
+	return in;
 }
 
 /// '<<' Operator redefined:
