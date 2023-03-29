@@ -13,7 +13,7 @@ public:
     /// Constructors:
     TF_String();
     TF_String(const char *s);
-    TF_String(TF_String &a);
+    TF_String(const TF_String &a);
 
     /// Destructor:
     ~TF_String();

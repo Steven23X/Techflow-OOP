@@ -17,13 +17,12 @@ TF_String::TF_String(const char *s)
 }
 
 /// Copy Constructor:
-TF_String ::TF_String(TF_String &a)
+TF_String ::TF_String(const TF_String &a)
 {
     if (a.str != nullptr)
     {
-        str = new char[str_length(a.str + 1)];
+        str = new char[str_length(a.str) + 1];
         str_copy(str, a.str);
-        delete[] a.str;
     }
     else
         str = nullptr;
@@ -40,7 +39,7 @@ void TF_String::operator=(TF_String &op2)
 {
     if (op2.str != nullptr)
     {
-        str = new char[str_length(op2.str + 1)];
+        str = new char[str_length(op2.str) + 1];
         str_copy(str, op2.str);
     }
     else
