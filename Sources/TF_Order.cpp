@@ -37,7 +37,7 @@ std::ostream &operator<<(std::ostream &out, const TF_Order &object)
 }
 
 /// Method that returns the total price of all products:
-int TF_Order::orderTotal()
+double TF_Order::orderTotal()
 {
     double total = 0;
     for (int i = 0; i < products.getSize(); i++)
@@ -52,4 +52,13 @@ double TF_Order::addCharge(double charge)
 {
     double total = orderTotal() + orderTotal() * charge;
     return total;
+}
+
+/// Method that returns the remaining budget:
+double TF_Order::verifyBudget(double value)
+{
+    double remainingBudget = customer.getBudget() - value;
+    if (remainingBudget < 0)
+        std::cout << "OverBudget!" << std::endl;
+    return remainingBudget;
 }

@@ -205,7 +205,10 @@
     ``` 
 
 #### **Methods:**
-- None at this moment.
+- Getter for price.
+    ``` c++
+    double getPrice();
+    ``` 
   
 ---
 ### **TF_Product**
@@ -259,7 +262,7 @@
     ``` 
 - Getter for price.
     ``` c++
-    int getPrice();
+    double getPrice();
     ``` 
 ---
 ### **TF_Order**
@@ -301,11 +304,15 @@
 #### **Methods:**
 - Method that returns the total price of all products.
     ``` c++
-    int orderTotal();
+    double orderTotal();
     ``` 
 - Method that returns the total price after charge.
     ``` c++
     double addCharge(double charge);
+    ```  
+- Method that returns the remaining budget.
+    ``` c++
+    double verifyBudget(double value);
     ```  
 ---
 ### **Features**

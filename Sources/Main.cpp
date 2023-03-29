@@ -121,5 +121,7 @@ int main()
     std::cout << "Total:" << std::endl;
     std::cout << order.orderTotal() << "$" << std::endl;
     std::cout << "Total after TVA:" << std::endl;
-    std::cout << order.addCharge(0.02) << "$";
+    std::cout << order.addCharge(0.02) << "$" << std::endl;
+    std::cout << "Budget after order:" << std::endl;
+    std::cout << order.verifyBudget(order.addCharge(0.02));
 }

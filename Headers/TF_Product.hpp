@@ -27,6 +27,6 @@ public:
     /// Methods:
     void discount(int percentage);
     void discount(double percentage);
-    int getPrice();
+    double getPrice();
 };
 #endif

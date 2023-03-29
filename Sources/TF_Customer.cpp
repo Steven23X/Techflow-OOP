@@ -52,3 +52,9 @@ std::ostream &operator<<(std::ostream &out, const TF_Customer &object)
     out << "Budget: " << object.budget << "$" << std::endl;
     return out;
 }
+
+/// Getter for budget.
+double TF_Customer::getBudget()
+{
+    return budget;
+}
