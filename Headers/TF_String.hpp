@@ -14,6 +14,7 @@ public:
     TF_String();
     TF_String(const char *s);
     TF_String(const TF_String &other);
+    TF_String(TF_String &&other) noexcept;
 
     /// Destructor:
     ~TF_String();

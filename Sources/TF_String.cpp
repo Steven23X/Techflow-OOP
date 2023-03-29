@@ -17,7 +17,7 @@ TF_String::TF_String(const char *s)
 }
 
 /// Copy Constructor:
-TF_String ::TF_String(const TF_String &other)
+TF_String::TF_String(const TF_String &other)
 {
     if (other.str != nullptr)
     {
@@ -26,6 +26,13 @@ TF_String ::TF_String(const TF_String &other)
     }
     else
         str = nullptr;
+}
+
+/// Move Constructor:
+TF_String::TF_String(TF_String &&other) noexcept : str(nullptr)
+{
+    str = other.str;
+    other.str = nullptr;
 }
 
 /// Destructor:

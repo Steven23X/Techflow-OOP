@@ -70,6 +70,10 @@
     ``` c++
     TF_String(const TF_String &other);
     ```
+- Move Constructor.
+    ``` c++
+    TF_String(TF_String &&other) noexcept;
+    ```
 
 #### **Destructor:**
 
@@ -126,6 +130,10 @@
     ``` c++
     TF_Vector(const TF_Vector<T> &other);
     ``` 
+- Move Constructor.
+    ``` c++
+    TF_Vector(TF_Vector &&other) noexcept;
+    ```
   
 #### **Destructor:**
 - Frees any dynamically allocated memory when an object of the class is destroyed.
@@ -344,6 +352,6 @@ Both TF_String and TF_Vector use Dynamic Allocation.
 - [X] Read from keyboard and create at least 3 types of objects among those defined.
 - [X] Display these objects, after they have been read by the application.
 - [X] Call a method on them.
-- [ ] Implement the move constructor and overload the move operator = for at least one class that manages dynamically allocated memory.
+- [X] Implement the move constructor and overload the move operator = for at least one class that manages dynamically allocated memory.
 
 ---

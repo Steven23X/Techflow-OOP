@@ -33,7 +33,15 @@ public:
         for (int i = 0; i < size; i++)
             data[i] = other.data[i];
     }
-
+    /// Move Construtor:
+    TF_Vector(TF_Vector &&other) noexcept : data(nullptr), size(0)
+    {
+        data = other.data;
+        size = other.size;
+        other.data = nullptr;
+        other.size = 0;
+    }
+    
     /// Destructor:
     ~TF_Vector()
     {
@@ -54,7 +62,7 @@ public:
     friend std::ostream &operator<<(std::ostream &out, const TF_Vector<T> &vector)
     {
         for (int i = 0; i < vector.size; i++)
-            out << i+1 <<". "<< vector.data[i];
+            out << i + 1 << ". " << vector.data[i];
         return out;
     }
 
