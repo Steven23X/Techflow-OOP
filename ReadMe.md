@@ -334,9 +334,9 @@ Both TF_String and TF_Vector use Dynamic Allocation.
 - [X] At least one class must have a non-trivial destructor.
 
 ### **Interactive Menu**
-- [ ] Read from keyboard and create at least 3 types of objects among those defined.
-- [ ] Display these objects, after they have been read by the application.
-- [ ] Call a method on them.
+- [X] Read from keyboard and create at least 3 types of objects among those defined.
+- [X] Display these objects, after they have been read by the application.
+- [X] Call a method on them.
 - [ ] Implement the move constructor and overload the move operator = for at least one class that manages dynamically allocated memory.
 
 ---

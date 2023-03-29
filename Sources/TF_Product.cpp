@@ -38,9 +38,9 @@ std::istream &operator>>(std::istream &in, TF_Product &object)
 /// '<<' Operator redefined:
 std::ostream &operator<<(std::ostream &out, const TF_Product &object)
 {
-    out << "Type: " << object.type << std::endl;
-    out << "Name: " << object.name << std::endl;
-    out << "Price: " << object.price << std::endl;
+    out << "Type: " << object.type << " / ";
+    out << "Name: " << object.name << " / ";
+    out << "Price: " << object.price << "$ / " << std::endl;
     return out;
 }
 

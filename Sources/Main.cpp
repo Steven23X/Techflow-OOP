@@ -90,5 +90,36 @@ int main()
     TechFlow.pushback(prod14);
     TechFlow.pushback(prod15);
 
-    std::cout << TechFlow;
+    std::cout << "Enter Personal Information:" << std::endl;
+    std::cout << std::endl;
+
+    TF_Customer customer;
+    std::cin >> customer;
+
+    std::cout << std::endl;
+    std::cout << "TechFlow Store:" << std::endl;
+    std::cout << std::endl;
+    std::cout << TechFlow << std::endl;
+
+    std::cout << "How many products you want to buy?" << std::endl;
+    int number_of_products, index;
+    std::cin >> number_of_products;
+    TF_Vector<TF_Product> order_products;
+    std::cout << std::endl;
+    std::cout << "Enter index of products:" << std::endl;
+
+    for (int i = 0; i < number_of_products; i++)
+    {
+        std::cin >> index;
+        order_products.pushback(TechFlow[index - 1]);
+    }
+
+    std::cout << std::endl;
+    TF_Order order(customer, order_products, "31.03.2023");
+    std::cout << order;
+    std::cout << std::endl;
+    std::cout << "Total:" << std::endl;
+    std::cout << order.orderTotal() << "$" << std::endl;
+    std::cout << "Total after TVA:" << std::endl;
+    std::cout << order.addCharge(0.02) << "$";
 }
