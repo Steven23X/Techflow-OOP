@@ -37,7 +37,6 @@ public:
     /// Destructor:
     ~TF_Vector()
     {
-        delete[] data;
     }
 
     /// '=' Operator redefined:

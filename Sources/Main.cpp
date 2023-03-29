@@ -25,10 +25,70 @@ int main()
     int price5 = 139;
     TF_Product prod5(name5, type5, price5);
 
+    TF_String type6("RAM");
+    TF_String name6("G.Skill Ripjaws V DDR4-3600 CL16");
+    int price6 = 109;
+    TF_Product prod6(name6, type6, price6);
+
+    TF_String type7("SSD");
+    TF_String name7("Samsung 970 EVO Plus 1TB NVMe SSD");
+    int price7 = 169;
+    TF_Product prod7(name7, type7, price7);
+
+    TF_String type8("Cooler");
+    TF_String name8("Noctua NH-D15");
+    int price8 = 99;
+    TF_Product prod8(name8, type8, price8);
+
+    TF_String type9("Monitor");
+    TF_String name9("ASUS TUF Gaming VG27AQ1A");
+    int price9 = 449;
+    TF_Product prod9(name9, type9, price9);
+
+    TF_String type10("Case");
+    TF_String name10("Fractal Design Meshify C");
+    int price10 = 89;
+    TF_Product prod10(name10, type10, price10);
+
+    TF_String type11("Headphones");
+    TF_String name11("Bose QuietComfort 35 II");
+    int price11 = 299;
+    TF_Product prod11(name11, type11, price11);
+
+    TF_String type12("Keyboard");
+    TF_String name12("Logitech G915 TKL");
+    int price12 = 229;
+    TF_Product prod12(name12, type12, price12);
+
+    TF_String type13("Mouse");
+    TF_String name13("Razer DeathAdder Elite");
+    int price13 = 69;
+    TF_Product prod13(name13, type13, price13);
+
+    TF_String type14("Smartphone");
+    TF_String name14("Samsung Galaxy S21 Ultra");
+    int price14 = 1199;
+    TF_Product prod14(name14, type14, price14);
+
+    TF_String type15("Fitness Tracker");
+    TF_String name15("Fitbit Charge 5");
+    int price15 = 179;
+    TF_Product prod15(name15, type15, price15);
+
     TechFlow.pushback(prod2);
     TechFlow.pushback(prod3);
     TechFlow.pushback(prod4);
     TechFlow.pushback(prod5);
+    TechFlow.pushback(prod6);
+    TechFlow.pushback(prod7);
+    TechFlow.pushback(prod8);
+    TechFlow.pushback(prod9);
+    TechFlow.pushback(prod10);
+    TechFlow.pushback(prod11);
+    TechFlow.pushback(prod12);
+    TechFlow.pushback(prod13);
+    TechFlow.pushback(prod14);
+    TechFlow.pushback(prod15);
 
-    std::cout<<TechFlow;
+    std::cout << TechFlow;
 }
