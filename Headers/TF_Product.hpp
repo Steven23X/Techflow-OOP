@@ -15,7 +15,7 @@ public:
     /// Constructors:
     TF_Product();
     TF_Product(TF_String &name, TF_String &type, double price);
-    TF_Product(TF_Product &object);
+    TF_Product(TF_Product &other);
 
     /// Destructor:
     ~TF_Product();

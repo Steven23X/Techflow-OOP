@@ -68,7 +68,7 @@
     ```
 - Copy constructor that takes another TF_String object as input.
     ``` c++
-    TF_String(TF_String &a);
+    TF_String(const TF_String &other);
     ```
 
 #### **Destructor:**
