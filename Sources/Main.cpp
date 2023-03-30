@@ -120,8 +120,16 @@ int main()
     std::cout << std::endl;
     std::cout << "Total:" << std::endl;
     std::cout << order.orderTotal() << "$" << std::endl;
+    std::cout << std::endl;
     std::cout << "Total after TVA:" << std::endl;
     std::cout << order.addCharge(0.02) << "$" << std::endl;
+    std::cout << std::endl;
     std::cout << "Budget after order:" << std::endl;
     std::cout << order.verifyBudget(order.addCharge(0.02));
+    std::cout << std::endl;
+
+    std::cout << "Write your own product:" << std::endl;
+    TF_Product myproduct;
+    std::cin >> myproduct;
+    std::cout << myproduct;
 }
