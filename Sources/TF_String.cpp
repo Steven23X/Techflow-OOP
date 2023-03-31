@@ -63,12 +63,13 @@ TF_String &TF_String::operator=(TF_String &&other) noexcept
         str = other.str;
         other.str = nullptr;
     }
+    return *this;
 }
 
 /// '>>' Operator redefined:
 std::istream &operator>>(std::istream &in, TF_String &s)
 {
-    const int buffSz = 100;
+    const int buffSz = 1000;
     char buff[buffSz];
     in >> std::setw(buffSz) >> buff;
     s.str = new char[s.str_length(buff) + 1];

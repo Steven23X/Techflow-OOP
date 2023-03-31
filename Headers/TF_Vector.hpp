@@ -35,7 +35,7 @@ public:
     }
     /// Move Construtor:
     TF_Vector(TF_Vector &&other) noexcept : data(nullptr), size(0)
-    {
+    {   
         data = other.data;
         size = other.size;
         other.data = nullptr;
