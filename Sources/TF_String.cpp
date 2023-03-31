@@ -1,6 +1,7 @@
 #include "../Headers/TechFlow.hpp"
 #include <iostream>
 #include <iomanip>
+
 /// Default Constructor:
 TF_String::TF_String() : str(nullptr) {}
 
@@ -51,6 +52,17 @@ void TF_String::operator=(TF_String &op2)
     }
     else
         str = nullptr;
+}
+
+/// Move assignment operator
+TF_String &TF_String::operator=(TF_String &&other) noexcept
+{
+    if (this != &other)
+    {
+        delete[] str;
+        str = other.str;
+        other.str = nullptr;
+    }
 }
 
 /// '>>' Operator redefined:

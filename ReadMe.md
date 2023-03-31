@@ -83,7 +83,10 @@
     ```
 
 #### **Overloaded operators:**
-
+- Move assignment operator.
+    ``` c++
+    TF_String& operator=(TF_String&& other) noexcept;
+    ```
 - The assignment operator, operator=, which assigns one TF_String object to another.
     ``` c++
     void operator=(TF_String &op2);
@@ -141,6 +144,10 @@
     ~TF_Vector();
     ``` 
 #### **Overloaded operators:**
+- Move assignment operator.
+    ``` c++
+    TF_Vector &operator=(TF_Vector &&other) noexcept
+    ```
 - The assignment operator, operator=, which assigns one TF_Vector object to another.
     ``` c++
   void operator=(const TF_Vector<T> &other);

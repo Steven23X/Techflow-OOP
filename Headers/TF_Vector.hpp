@@ -41,7 +41,7 @@ public:
         other.data = nullptr;
         other.size = 0;
     }
-    
+
     /// Destructor:
     ~TF_Vector()
     {
@@ -56,6 +56,20 @@ public:
         data = new T[size];
         for (int i = 0; i < size; i++)
             data[i] = other.data[i];
+    }
+
+    /// Move assignment operator
+    TF_Vector &operator=(TF_Vector &&other) noexcept
+    {
+        if (this != &other)
+        {
+            delete[] data;
+            data = other.data;
+            size = other.size;
+
+            other.str = nullptr;
+            other.size = 0;
+        }
     }
 
     /// '<<' Operator redefined:
