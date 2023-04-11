@@ -39,6 +39,13 @@
   - [**Input and Output**](#input-and-output)
   - [**Dynamic Allocation**](#dynamic-allocation)
   - [**Interactive Menu**](#interactive-menu)
+- [**Task 2**](#task-2)
+  - [**Inheritance**](#inheritance)
+  - [**Interfaces and Virtual Methods**](#interfaces-and-virtual-methods)
+  - [**Execution Polymorphism**](#execution-polymorphism)
+  - [**Exceptions**](#exceptions)
+  - [**Variables and Static Methods**](#variables-and-static-methods)
+  - [**Smart Pointers and Lambda Expressions**](#smart-pointers-and-lambda-expressions)
 ---
 ## **Description**
 **TechFlow** is an object-oriented program that simulates a basic online store that sells computer-related products. The program is written in C++ and follows the principle of encapsulation.
@@ -362,3 +369,37 @@ Both TF_String and TF_Vector use Dynamic Allocation.
 - [X] Implement the move constructor and overload the move operator = for at least one class that manages dynamically allocated memory.
 
 ---
+
+## **Task 2**
+
+### **Inheritance**
+- [ ] At least two different inheritance hierarchies.
+- [ ] At least two different access modifiers on the inherited class .
+- [ ] At least one class that uses multiple inheritance.
+- [ ] Call at least once a constructor (with parameters) from a base class, using an initialization list in the child class's constructor.
+- [ ] At least two data members and at least one method with the protected access modifier.
+  
+### **Interfaces and Virtual Methods**
+- [ ] Define and extend at least one interface that has at least two methods.
+- [ ] Define and extend at least one abstract base class.
+- [ ] Identify in the project at least one situation where the virtual destructor needs to be called.
+- [ ] Define at least four virtual methods that will be overridden in subclasses.
+
+### **Execution Polymorphism**
+- [ ] Identify at least four places where runtime polymorphism occurs.
+- [ ] Identify at least four instances of upcasting.
+- [ ] Perform downcasting in at least one situation in your code, using dynamic_cast or RTTI.
+
+### **Exceptions**
+- [ ] Define at least one custom exception type that extends std::exception.
+- [ ] Throw exceptions in at least four different functions/methods.
+- [ ] Implement at least one try...catch block that catches an exception thrown and handles it in a specific way.
+- [ ] Implement at least one try...catch block that catches an exception, processes it, and rethrows another type of exception from the catch block.
+
+### **Variables and Static Methods**
+- [ ] Define a static member variable in at least one class.
+- [ ] Implement at least two static methods in your classes.
+
+### **Smart Pointers and Lambda Expressions**
+- [ ] Use smart pointers for dynamic allocations from your project instead of raw pointers with new and delete.
+- [ ] Use at least two lambda expressions to parameterize the functionality of a function or a class.
