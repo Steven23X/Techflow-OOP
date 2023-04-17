@@ -90,6 +90,8 @@ int main()
     TechFlow.pushback(prod14);
     TechFlow.pushback(prod15);
 
+    // Interactive Menu
+
     std::cout << "Enter Personal Information:" << std::endl;
     std::cout << std::endl;
 
@@ -132,4 +134,8 @@ int main()
     TF_Product myproduct;
     std::cin >> myproduct;
     std::cout << myproduct;
+
+    TF_String x("a");
+    TF_GraphicsCard a(x, 12, 123, 1241, 1231);
+    std::cout << a;
 }

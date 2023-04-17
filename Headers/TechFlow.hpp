@@ -8,4 +8,6 @@
 #include "TF_Product.hpp"
 #include "TF_Order.hpp"
 
+#include "TF_GraphicsCard.hpp"
+
 #endif

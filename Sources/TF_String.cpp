@@ -43,7 +43,7 @@ TF_String::~TF_String()
 }
 
 /// '=' Operator redefined:
-void TF_String::operator=(TF_String &op2)
+void TF_String::operator=(const TF_String &op2)
 {
     if (op2.str != nullptr)
     {

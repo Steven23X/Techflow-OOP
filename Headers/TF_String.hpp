@@ -20,8 +20,8 @@ public:
     ~TF_String();
 
     /// Operators:
-    void operator=(TF_String &op2);
-    TF_String& operator=(TF_String&& other) noexcept;
+    void operator=(const TF_String &op2);
+    TF_String &operator=(TF_String &&other) noexcept;
     friend std::istream &operator>>(std::istream &in, TF_String &s);
     friend std::ostream &operator<<(std::ostream &out, const TF_String &s);
 

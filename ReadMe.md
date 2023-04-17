@@ -32,6 +32,10 @@
     - [**Destructor:**](#destructor-4)
     - [**Overloaded operators:**](#overloaded-operators-4)
     - [**Methods:**](#methods-4)
+  - [**TF\_GraphicsCard**](#tf_graphicscard)
+    - [**Private member variables:**](#private-member-variables-5)
+    - [**Constructors:**](#constructors-5)
+    - [**Destructor:**](#destructor-5)
   - [**Features**](#features)
 - [**Task 1**](#task-1)
   - [**Classes**](#classes-1)
@@ -96,7 +100,7 @@
     ```
 - The assignment operator, operator=, which assigns one TF_String object to another.
     ``` c++
-    void operator=(TF_String &op2);
+    void operator=(const TF_String &op2);
     ```
 - The stream input operator, operator>>, which allows input from a stream into a TF_String object.
     ``` c++
@@ -227,9 +231,9 @@
     ``` 
 
 #### **Methods:**
-- Getter for price.
+- Getter for budget.
     ``` c++
-    double getPrice();
+    double getBudget();
     ``` 
   
 ---
@@ -252,9 +256,13 @@
     ``` c++
     TF_Product(TF_String &name, TF_String &type, double price);
     ``` 
+ - Parameterized constructor that takes in the products's name and price as arguments.
+    ``` c++
+    TF_Product(TF_String &name, double price);
+    ``` 
  - Copy constructor that creates a new product object with the same values as an existing product object.
     ``` c++
-    TF_Product(TF_Product &object);
+    TF_Product(const TF_Product &object);
     ``` 
   
 #### **Destructor:**
@@ -286,6 +294,10 @@
     ``` c++
     double getPrice();
     ``` 
+- Setter for type.
+    ``` c++
+    void setType(const TF_String &type);
+    ```
 ---
 ### **TF_Order**
 - is a class that provides information about the order.
@@ -337,6 +349,37 @@
     double verifyBudget(double value);
     ```  
 ---
+
+### **TF_GraphicsCard**
+- is a subclass of TF_Product that has the type GraphicsCard.
+
+#### **Private member variables:**
+
+- **memorySize** : type int
+- **coreClock** : type int
+- **memoryClock** : type int
+
+#### **Constructors:**
+
+ - Default constructor.
+    ``` c++
+    TF_GraphicsCard();
+    ``` 
+ - Parameterized constructor that takes in the products's variables and the private variables of the subclass as arguments.
+    ``` c++
+    TF_GraphicsCard(TF_String &name, double price, int memorySize, int coreClock, int memoryClock);
+    ``` 
+ - Copy constructor that creates a new product object with the same values as an existing product object.
+    ``` c++
+    TF_GraphicsCard(const TF_GraphicsCard &other);
+    ``` 
+  
+#### **Destructor:**
+- Frees any dynamically allocated memory when an object of the class is destroyed. (trivial)
+    ``` c++
+    ~TF_GraphicsCard();
+    ``` 
+---
 ### **Features**
 TBA
 
@@ -374,9 +417,12 @@ Both TF_String and TF_Vector use Dynamic Allocation.
 
 ### **Inheritance**
 - [ ] At least two different inheritance hierarchies.
+    
+1. Product Hierarchy - TF_Product -> TF_GraphicsCard
+2. Customer Hierarchy - TBA
 - [ ] At least two different access modifiers on the inherited class .
 - [ ] At least one class that uses multiple inheritance.
-- [ ] Call at least once a constructor (with parameters) from a base class, using an initialization list in the child class's constructor.
+- [X] Call at least once a constructor (with parameters) from a base class, using an initialization list in the child class's constructor.
 - [ ] At least two data members and at least one method with the protected access modifier.
   
 ### **Interfaces and Virtual Methods**

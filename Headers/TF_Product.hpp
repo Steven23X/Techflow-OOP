@@ -15,7 +15,8 @@ public:
     /// Constructors:
     TF_Product();
     TF_Product(TF_String &name, TF_String &type, double price);
-    TF_Product(TF_Product &other);
+    TF_Product(TF_String &name, double price);
+    TF_Product(const TF_Product &other);
 
     /// Destructor:
     ~TF_Product();
@@ -28,5 +29,6 @@ public:
     void discount(int percentage);
     void discount(double percentage);
     double getPrice();
+    void setType(const TF_String &type);
 };
 #endif

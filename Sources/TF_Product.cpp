@@ -4,7 +4,7 @@
 /// Default Constructor:
 TF_Product::TF_Product() : name(""), type(""), price(0) {}
 
-/// Constructor with three parameters:
+/// Constructor with three and two parameters:
 TF_Product::TF_Product(TF_String &name, TF_String &type, double price)
 {
     this->name = name;
@@ -12,12 +12,18 @@ TF_Product::TF_Product(TF_String &name, TF_String &type, double price)
     this->price = price;
 }
 
-/// Copy Constructor:
-TF_Product::TF_Product(TF_Product &other)
+TF_Product::TF_Product(TF_String &name, double price)
 {
-    this->name = other.name;
-    this->type = other.type;
-    this->price = other.price;
+    this->name = name;
+    this->price = price;
+}
+
+/// Copy Constructor:
+TF_Product::TF_Product(const TF_Product &other)
+{
+    name = other.name;
+    type = other.type;
+    price = other.price;
 }
 
 /// Default Destructor (trivial)
@@ -60,4 +66,10 @@ void TF_Product::discount(double percentage)
 double TF_Product::getPrice()
 {
     return price;
+}
+
+/// setter for type
+void TF_Product::setType(const TF_String &type)
+{
+    this->type = type;
 }
