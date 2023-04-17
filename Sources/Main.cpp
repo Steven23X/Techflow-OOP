@@ -137,7 +137,7 @@ int main()
 
     TF_String x("a");
     TF_String y("b");
-    TF_Processor a(x, 12, 123, 1241, y);
+    TF_MotherBoard a(x, 12, 123, x, y);
     std::cout << a;
 
 

@@ -40,6 +40,10 @@
     - [**Private member variables:**](#private-member-variables-6)
     - [**Constructors:**](#constructors-6)
     - [**Destructor:**](#destructor-6)
+  - [**TF\_MotherBoard**](#tf_motherboard)
+    - [**Private member variables:**](#private-member-variables-7)
+    - [**Constructors:**](#constructors-7)
+    - [**Destructor:**](#destructor-7)
   - [**Features**](#features)
 - [**Task 1**](#task-1)
   - [**Classes**](#classes-1)
@@ -414,6 +418,35 @@
     ~TF_Processor();
     ``` 
 ---
+### **TF_MotherBoard**
+- is a subclass of TF_Product that has the type MotherBoard.
+
+#### **Private member variables:**
+
+- **slots** : type int
+- **processor_socket** : type TF_String
+- **chipset** : type TF_String
+
+#### **Constructors:**
+
+ - Default constructor.
+    ``` c++
+    TF_MotherBoard();
+    ``` 
+ - Parameterized constructor that takes in the products's variables and the private variables of the subclass as arguments.
+    ``` c++
+    TF_MotherBoard(TF_String &name, double price, int slots, TF_String processor_socket, TF_String chipset);
+    ``` 
+ - Copy constructor that creates a new product object with the same values as an existing product object.
+    ``` c++
+   TF_MotherBoard(const TF_MotherBoard &other);
+    ``` 
+  
+#### **Destructor:**
+- Frees any dynamically allocated memory when an object of the class is destroyed. (trivial)
+    ``` c++
+    ~TF_MotherBoard();
+    ``` 
 ### **Features**
 TBA
 
@@ -452,7 +485,7 @@ Both TF_String and TF_Vector use Dynamic Allocation.
 ### **Inheritance**
 - [ ] At least two different inheritance hierarchies.
     
-1. Product Hierarchy - TF_Product -> TF_GraphicsCard , TF_Processor
+1. Product Hierarchy - TF_Product -> TF_GraphicsCard, TF_Processor, TF_MotherBoard
 2. Customer Hierarchy - TBA
 - [ ] At least two different access modifiers on the inherited class .
 - [ ] At least one class that uses multiple inheritance.

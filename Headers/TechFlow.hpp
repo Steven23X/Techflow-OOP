@@ -10,5 +10,6 @@
 
 #include "TF_GraphicsCard.hpp"
 #include "TF_Processor.hpp"
+#include "TF_MotherBoard.hpp"
 
 #endif
