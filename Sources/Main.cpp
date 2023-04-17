@@ -136,6 +136,9 @@ int main()
     std::cout << myproduct;
 
     TF_String x("a");
-    TF_GraphicsCard a(x, 12, 123, 1241, 1231);
+    TF_String y("b");
+    TF_Processor a(x, 12, 123, 1241, y);
     std::cout << a;
+
+
 }

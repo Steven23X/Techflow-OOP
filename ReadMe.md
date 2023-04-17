@@ -36,6 +36,10 @@
     - [**Private member variables:**](#private-member-variables-5)
     - [**Constructors:**](#constructors-5)
     - [**Destructor:**](#destructor-5)
+  - [**TF\_Processor**](#tf_processor)
+    - [**Private member variables:**](#private-member-variables-6)
+    - [**Constructors:**](#constructors-6)
+    - [**Destructor:**](#destructor-6)
   - [**Features**](#features)
 - [**Task 1**](#task-1)
   - [**Classes**](#classes-1)
@@ -380,6 +384,36 @@
     ~TF_GraphicsCard();
     ``` 
 ---
+### **TF_Processor**
+- is a subclass of TF_Product that has the type Processor.
+
+#### **Private member variables:**
+
+- **coreCount** : type int
+- **coreClock** : type int
+- **socket** : type TF_String
+
+#### **Constructors:**
+
+ - Default constructor.
+    ``` c++
+    TF_Processor();
+    ``` 
+ - Parameterized constructor that takes in the products's variables and the private variables of the subclass as arguments.
+    ``` c++
+    TF_Processor(TF_String &name, double price, int coreCount, int coreClock, TF_String socket);
+    ``` 
+ - Copy constructor that creates a new product object with the same values as an existing product object.
+    ``` c++
+    TF_Processor(const TF_Processor &other);
+    ``` 
+  
+#### **Destructor:**
+- Frees any dynamically allocated memory when an object of the class is destroyed. (trivial)
+    ``` c++
+    ~TF_Processor();
+    ``` 
+---
 ### **Features**
 TBA
 
@@ -418,7 +452,7 @@ Both TF_String and TF_Vector use Dynamic Allocation.
 ### **Inheritance**
 - [ ] At least two different inheritance hierarchies.
     
-1. Product Hierarchy - TF_Product -> TF_GraphicsCard
+1. Product Hierarchy - TF_Product -> TF_GraphicsCard , TF_Processor
 2. Customer Hierarchy - TBA
 - [ ] At least two different access modifiers on the inherited class .
 - [ ] At least one class that uses multiple inheritance.

@@ -9,5 +9,6 @@
 #include "TF_Order.hpp"
 
 #include "TF_GraphicsCard.hpp"
+#include "TF_Processor.hpp"
 
 #endif
