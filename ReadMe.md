@@ -44,10 +44,14 @@
     - [**Private member variables:**](#private-member-variables-7)
     - [**Constructors:**](#constructors-7)
     - [**Destructor:**](#destructor-7)
+  - [**TF\_PaymentMethod**](#tf_paymentmethod)
+    - [**Protected member variables:**](#protected-member-variables)
+    - [**Destructor:**](#destructor-8)
+    - [**Methods:**](#methods-5)
   - [**Features**](#features)
 - [**Task 1**](#task-1)
   - [**Classes**](#classes-1)
-  - [**Methods**](#methods-5)
+  - [**Methods**](#methods-6)
   - [**Input and Output**](#input-and-output)
   - [**Dynamic Allocation**](#dynamic-allocation)
   - [**Interactive Menu**](#interactive-menu)
@@ -447,6 +451,35 @@
     ``` c++
     ~TF_MotherBoard();
     ``` 
+---
+### **TF_PaymentMethod**
+- represents an abstract base class for handling different payment methods.
+
+#### **Protected member variables:**
+
+- **paymentDetails** : type TF_String
+- **isPaymentComplete** : type bool
+
+#### **Destructor:**
+- It ensures that when objects of derived classes are deleted through pointers to the base class PaymentMethod, the appropriate destructor of the derived class will be called, allowing for proper cleanup of any resources allocated in the derived classes. 
+    ``` c++
+    virtual ~TF_PaymentMethod();
+    ``` 
+
+#### **Methods:**
+- An abstract method that represents the process of processing a payment for a given amount.
+    ``` c++
+    virtual void processPayment(float amount) = 0;
+    ``` 
+- Method that displays the payment information, including the payment method name, payment details, and payment status.
+    ``` c++
+    void displayPaymentInfo();
+    ```
+- A protected abstract method that represents the name of the payment method.
+    ``` c++
+    virtual TF_String getPaymentMethodName() = 0;
+    ```
+---
 ### **Features**
 TBA
 
@@ -486,15 +519,15 @@ Both TF_String and TF_Vector use Dynamic Allocation.
 - [ ] At least two different inheritance hierarchies.
     
 1. Product Hierarchy - TF_Product -> TF_GraphicsCard, TF_Processor, TF_MotherBoard
-2. Customer Hierarchy - TBA
+2. Payment Method Hierarchy - TF_PaymentMethod ->
 - [ ] At least two different access modifiers on the inherited class .
 - [ ] At least one class that uses multiple inheritance.
 - [X] Call at least once a constructor (with parameters) from a base class, using an initialization list in the child class's constructor.
-- [ ] At least two data members and at least one method with the protected access modifier.
+- [X] At least two data members and at least one method with the protected access modifier.
   
 ### **Interfaces and Virtual Methods**
 - [ ] Define and extend at least one interface that has at least two methods.
-- [ ] Define and extend at least one abstract base class.
+- [X] Define and extend at least one abstract base class.
 - [ ] Identify in the project at least one situation where the virtual destructor needs to be called.
 - [ ] Define at least four virtual methods that will be overridden in subclasses.
 

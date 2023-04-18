@@ -12,4 +12,6 @@
 #include "TF_Processor.hpp"
 #include "TF_MotherBoard.hpp"
 
+#include "TF_PaymentMethod.hpp"
+
 #endif
