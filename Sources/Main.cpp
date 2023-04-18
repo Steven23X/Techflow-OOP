@@ -89,6 +89,10 @@ int main()
 
     std::cout << "Type 'help' to see commands." << std::endl;
     std::string input;
+    bool login = false;
+
+    TF_Customer customer;
+    TF_Vector<TF_Product> order_products;
     while (true)
     {
         std::cout << "Enter a command: ";
@@ -104,6 +108,10 @@ int main()
             std::cout << "'exit' : close the program" << std::endl;
             std::cout << "'store' : display all the products" << std::endl;
             std::cout << "'details' : display details of a specific product" << std::endl;
+            std::cout << "'login' : login into account as a customer" << std::endl;
+            std::cout << "'buy' : buy products from the store" << std::endl;
+            std::cout << "'order' : shows your cart" << std::endl;
+            std::cout << "'checkout' : proceed to checkout" << std::endl;
         }
 
         if (input == "store")
@@ -111,7 +119,20 @@ int main()
             for (int i = 0; i < 10; i++)
                 std::cout << i + 1 << ". " << *TechFlow[i] << std::endl;
         }
-
+        if (input == "login")
+        {
+            if (!login)
+            {
+                std::cout << "Enter Personal Information:" << std::endl;
+                std::cout << std::endl;
+                std::cin >> customer;
+                std::cout << std::endl;
+                std::cout << "Login Complete!";
+                login = true;
+            }
+            else
+                std::cout << "Already Logged In!";
+        }
         if (input == "details")
         {
             std::cout << "Type Index of Product: ";
@@ -158,6 +179,49 @@ int main()
                     derivedPtr->displayColumn();
                 delete derivedPtr;
             }
+        }
+        if (input == "buy")
+        {
+            if (login)
+            {
+                for (int i = 0; i < 10; i++)
+                    std::cout << i + 1 << ". " << *TechFlow[i] << std::endl;
+                std::cout << "How many products you want to buy?" << std::endl;
+                int number_of_products, index;
+                std::cin >> number_of_products;
+                std::cout << std::endl;
+                std::cout << "Enter index of products:" << std::endl;
+
+                for (int i = 0; i < number_of_products; i++)
+                {
+                    std::cin >> index;
+                    order_products.pushback(*TechFlow[index - 1]);
+                }
+            }
+            else
+                std::cout << "NOT Logged In!";
+        }
+
+        if (input == "order")
+        {
+            if (login)
+            {
+                TF_Order order(customer, order_products, "");
+                std::cout << order;
+                std::cout << std::endl;
+                std::cout << "Total:" << std::endl;
+                std::cout << order.orderTotal() << "$" << std::endl;
+                std::cout << std::endl;
+                std::cout << "Total after TVA:" << std::endl;
+                std::cout << order.addCharge(0.02) << "$" << std::endl;
+            }
+            else
+                std::cout << "NOT Logged In!";
+        }
+
+        if (input == "checkout")
+        {
+            
         }
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::cout << std::endl;
