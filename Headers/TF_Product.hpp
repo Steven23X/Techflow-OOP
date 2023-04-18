@@ -30,5 +30,7 @@ public:
     void discount(double percentage);
     double getPrice();
     void setType(const TF_String &type);
+
+    virtual void dummy() {}
 };
 #endif

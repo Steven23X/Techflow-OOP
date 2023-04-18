@@ -2,7 +2,7 @@
 #define _TF_GRAPHICSCARD_HPP_
 #include "TechFlow.hpp"
 
-class TF_GraphicsCard : public TF_Product
+class TF_GraphicsCard : public TF_Product,public TF_DisplayInterface
 {
     /// Private Variables:
     int memorySize;
@@ -19,5 +19,7 @@ public:
     ~TF_GraphicsCard();
 
     /// Methods:
+    void displayRow() override;
+    void displayColumn() override;
 };
 #endif

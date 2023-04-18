@@ -25,3 +25,22 @@ TF_GraphicsCard::TF_GraphicsCard(const TF_GraphicsCard &other)
 
 /// Destructor
 TF_GraphicsCard::~TF_GraphicsCard() {}
+
+/// Methods
+
+/// display method in row
+void TF_GraphicsCard::displayRow()
+{
+    std::cout << "Memory Size: " << memorySize << "GB"
+              << " * Core Clock: " << coreClock << " * Memory Clock: "
+              << "MHz" << memoryClock << "MHz" << std::endl;
+}
+
+/// display method in column
+void TF_GraphicsCard::displayColumn()
+{
+    std::cout << "Memory Size: " << memorySize << "GB" << std::endl;
+    std::cout << "Core Clock: " << coreClock << "MHz" << std::endl;
+    std::cout << "Memory Clock: " << memoryClock << "MHz" << std::endl;
+    std::cout << std::endl;
+}

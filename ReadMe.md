@@ -3,55 +3,20 @@
 - [**Description**](#description)
 - [**Classes**](#classes)
   - [**TF\_String**](#tf_string)
-    - [**Private member variables:**](#private-member-variables)
-    - [**Constructors:**](#constructors)
-    - [**Destructor:**](#destructor)
-    - [**Overloaded operators:**](#overloaded-operators)
-    - [**Methods:**](#methods)
   - [**TF\_Vector**](#tf_vector)
-    - [**Private member variables:**](#private-member-variables-1)
-    - [**Constructors:**](#constructors-1)
-    - [**Destructor:**](#destructor-1)
-    - [**Overloaded operators:**](#overloaded-operators-1)
-    - [**Methods:**](#methods-1)
   - [**TF\_Customer**](#tf_customer)
-    - [**Private member variables:**](#private-member-variables-2)
-    - [**Constructors:**](#constructors-2)
-    - [**Destructor:**](#destructor-2)
-    - [**Overloaded operators:**](#overloaded-operators-2)
-    - [**Methods:**](#methods-2)
   - [**TF\_Product**](#tf_product)
-    - [**Private member variables:**](#private-member-variables-3)
-    - [**Constructors:**](#constructors-3)
-    - [**Destructor:**](#destructor-3)
-    - [**Overloaded operators:**](#overloaded-operators-3)
-    - [**Methods:**](#methods-3)
+    - [**TF\_GraphicsCard**](#tf_graphicscard)
+    - [**TF\_Processor**](#tf_processor)
+    - [**TF\_MotherBoard**](#tf_motherboard)
   - [**TF\_Order**](#tf_order)
-    - [**Private member variables:**](#private-member-variables-4)
-    - [**Constructors:**](#constructors-4)
-    - [**Destructor:**](#destructor-4)
-    - [**Overloaded operators:**](#overloaded-operators-4)
-    - [**Methods:**](#methods-4)
-  - [**TF\_GraphicsCard**](#tf_graphicscard)
-    - [**Private member variables:**](#private-member-variables-5)
-    - [**Constructors:**](#constructors-5)
-    - [**Destructor:**](#destructor-5)
-  - [**TF\_Processor**](#tf_processor)
-    - [**Private member variables:**](#private-member-variables-6)
-    - [**Constructors:**](#constructors-6)
-    - [**Destructor:**](#destructor-6)
-  - [**TF\_MotherBoard**](#tf_motherboard)
-    - [**Private member variables:**](#private-member-variables-7)
-    - [**Constructors:**](#constructors-7)
-    - [**Destructor:**](#destructor-7)
   - [**TF\_PaymentMethod**](#tf_paymentmethod)
-    - [**Protected member variables:**](#protected-member-variables)
-    - [**Destructor:**](#destructor-8)
-    - [**Methods:**](#methods-5)
-  - [**Features**](#features)
+- [**Interfaces**](#interfaces)
+  - [**TF\_DisplayInterface**](#tf_displayinterface)
+- [**Features**](#features)
 - [**Task 1**](#task-1)
   - [**Classes**](#classes-1)
-  - [**Methods**](#methods-6)
+  - [**Methods**](#methods)
   - [**Input and Output**](#input-and-output)
   - [**Dynamic Allocation**](#dynamic-allocation)
   - [**Interactive Menu**](#interactive-menu)
@@ -74,11 +39,11 @@
 ### **TF_String**
 - is used to represent and manipulate strings of characters.
 
-#### **Private member variables:**
+ **Private member variables:**
 
 - **str** : type char*
 
-#### **Constructors:**
+ **Constructors:**
 
 - Default constructor.
     ``` c++
@@ -98,14 +63,14 @@
     TF_String(TF_String &&other) noexcept;
     ```
 
-#### **Destructor:**
+ **Destructor:**
 
 - Frees any dynamically allocated memory when an object of the class is destroyed.
     ``` c++
    ~TF_String();
     ```
 
-#### **Overloaded operators:**
+ **Overloaded operators:**
 - Move assignment operator.
     ``` c++
     TF_String& operator=(TF_String&& other) noexcept;
@@ -122,7 +87,7 @@
     ``` c++
     friend std::ostream &operator<<(std::ostream &out, const TF_String &s);
     ```
-#### **Methods:**
+ **Methods:**
 
 - Method that takes a const char* input and returns the length of the string.
     ``` c++
@@ -137,12 +102,12 @@
 ### **TF_Vector**
 - is a template class that provides a dynamic array data structure for storing a sequence of elements of type T.
 
-#### **Private member variables:**
+ **Private member variables:**
 
 - **size** : type
 - **data** : type
 
-#### **Constructors:**
+ **Constructors:**
 
  - Default constructor.
     ``` c++
@@ -161,12 +126,12 @@
     TF_Vector(TF_Vector &&other) noexcept;
     ```
   
-#### **Destructor:**
+ **Destructor:**
 - Frees any dynamically allocated memory when an object of the class is destroyed.
     ``` c++
     ~TF_Vector();
     ``` 
-#### **Overloaded operators:**
+ **Overloaded operators:**
 - Move assignment operator.
     ``` c++
     TF_Vector &operator=(TF_Vector &&other) noexcept
@@ -188,7 +153,7 @@
     T &operator[](int index);
     ``` 
 
-#### **Methods:**
+ **Methods:**
 - Method that is equivalent to push_back in the standard vector container.
     ``` c++
     void pushback(T elem);
@@ -202,7 +167,7 @@
 ### **TF_Customer**
 - is a class that provides personal information about the customer.
 
-#### **Private member variables:**
+ **Private member variables:**
 
 - **first_name** : type TF_String
 - **last_name** : type TF_String
@@ -210,7 +175,7 @@
 - **email** : type TF_String
 - **buget** : type double
 
-#### **Constructors:**
+ **Constructors:**
 
  - Default constructor : initializes all member variables to empty strings and budget to 0.
     ``` c++
@@ -225,13 +190,13 @@
     TF_Customer(TF_Customer &other);
     ``` 
   
-#### **Destructor:**
+ **Destructor:**
 - Frees any dynamically allocated memory when an object of the class is destroyed. (trivial)
     ``` c++
     ~TF_Customer();
     ``` 
   
-#### **Overloaded operators:**
+ **Overloaded operators:**
 - The stream input operator, operator>>, which allows input from a stream into an object of class Customer.
     ``` c++
     friend std::istream &operator>>(std::istream &in, TF_Customer &object);
@@ -242,7 +207,7 @@
     friend std::ostream &operator<<(std::ostream &out, const TF_Customer &object);
     ``` 
 
-#### **Methods:**
+ **Methods:**
 - Getter for budget.
     ``` c++
     double getBudget();
@@ -252,13 +217,13 @@
 ### **TF_Product**
 - is a class that provides personal information about the product.
 
-#### **Private member variables:**
+ **Private member variables:**
 
 - **name** : type TF_String
 - **type** : type TF_String
 - **price** : type double
 
-#### **Constructors:**
+ **Constructors:**
 
  - Default constructor : initializes name and type to empty strings and price to 0.
     ``` c++
@@ -277,13 +242,13 @@
     TF_Product(const TF_Product &object);
     ``` 
   
-#### **Destructor:**
+ **Destructor:**
 - Frees any dynamically allocated memory when an object of the class is destroyed. (trivial)
     ``` c++
     ~TF_Product();
     ``` 
   
-#### **Overloaded operators:**
+ **Overloaded operators:**
 - The stream input operator, operator>>, which allows input from a stream into an object of class Product.
     ``` c++
     friend std::istream &operator>>(std::istream &in, TF_Product &object);
@@ -293,7 +258,7 @@
     ``` c++
     friend std::ostream &operator<<(std::ostream &out, const TF_Product &object);
     ``` 
-#### **Methods:**
+ **Methods:**
 - Method that applies a discount to the price of an object of the TF_Product class by a percentage specified as an integer.
     ``` c++
     void discount(int percentage);
@@ -311,67 +276,16 @@
     void setType(const TF_String &type);
     ```
 ---
-### **TF_Order**
-- is a class that provides information about the order.
-
-#### **Private member variables:**
-
-- **customer** : type TF_Customer
-- **products** : type TF_Vector< TF_Product >
-- **date** : type TF_String
-
-#### **Constructors:**
-
- - Default constructor.
-    ``` c++
-    TF_Order();
-    ``` 
- - Parameterized constructor that takes in the orders's customer, products, date as arguments.
-    ``` c++
-    TF_Order(TF_Customer customer, TF_Vector<TF_Product> products, TF_String date);
-    ``` 
- - Copy constructor that creates a new product object with the same values as an existing product object.
-    ``` c++
-    TF_Order(TF_Order &other);
-    ``` 
-  
-#### **Destructor:**
-- Frees any dynamically allocated memory when an object of the class is destroyed. (trivial)
-    ``` c++
-    ~TF_Order();
-    ``` 
-
-#### **Overloaded operators:**
-- The stream output operator, operator<<, which allows output of an object of class Order.
-    ``` c++
-    friend std::ostream &operator<<(std::ostream &out, const TF_Order &object);
-    ``` 
-
-#### **Methods:**
-- Method that returns the total price of all products.
-    ``` c++
-    double orderTotal();
-    ``` 
-- Method that returns the total price after charge.
-    ``` c++
-    double addCharge(double charge);
-    ```  
-- Method that returns the remaining budget.
-    ``` c++
-    double verifyBudget(double value);
-    ```  
----
-
-### **TF_GraphicsCard**
+#### **TF_GraphicsCard**
 - is a subclass of TF_Product that has the type GraphicsCard.
 
-#### **Private member variables:**
+ **Private member variables:**
 
 - **memorySize** : type int
 - **coreClock** : type int
 - **memoryClock** : type int
 
-#### **Constructors:**
+ **Constructors:**
 
  - Default constructor.
     ``` c++
@@ -386,22 +300,28 @@
     TF_GraphicsCard(const TF_GraphicsCard &other);
     ``` 
   
-#### **Destructor:**
+ **Destructor:**
 - Frees any dynamically allocated memory when an object of the class is destroyed. (trivial)
     ``` c++
     ~TF_GraphicsCard();
     ``` 
+ **Methods**
+- From TF_DisplayInterface:
+    ``` c++
+    void displayRow() override;
+    void displayColumn() override;
+    ``` 
 ---
-### **TF_Processor**
+#### **TF_Processor**
 - is a subclass of TF_Product that has the type Processor.
 
-#### **Private member variables:**
+ **Private member variables:**
 
 - **coreCount** : type int
 - **coreClock** : type int
 - **socket** : type TF_String
 
-#### **Constructors:**
+ **Constructors:**
 
  - Default constructor.
     ``` c++
@@ -416,22 +336,28 @@
     TF_Processor(const TF_Processor &other);
     ``` 
   
-#### **Destructor:**
+ **Destructor:**
 - Frees any dynamically allocated memory when an object of the class is destroyed. (trivial)
     ``` c++
     ~TF_Processor();
     ``` 
+ **Methods**
+- From TF_DisplayInterface:
+    ``` c++
+    void displayRow() override;
+    void displayColumn() override;
+    ``` 
 ---
-### **TF_MotherBoard**
+#### **TF_MotherBoard**
 - is a subclass of TF_Product that has the type MotherBoard.
 
-#### **Private member variables:**
+ **Private member variables:**
 
 - **slots** : type int
 - **processor_socket** : type TF_String
 - **chipset** : type TF_String
 
-#### **Constructors:**
+ **Constructors:**
 
  - Default constructor.
     ``` c++
@@ -446,27 +372,84 @@
    TF_MotherBoard(const TF_MotherBoard &other);
     ``` 
   
-#### **Destructor:**
+ **Destructor:**
 - Frees any dynamically allocated memory when an object of the class is destroyed. (trivial)
     ``` c++
     ~TF_MotherBoard();
+    ```
+ **Methods**
+- From TF_DisplayInterface:
+    ``` c++
+    void displayRow() override;
+    void displayColumn() override;
     ``` 
 ---
+### **TF_Order**
+- is a class that provides information about the order.
+
+ **Private member variables:**
+
+- **customer** : type TF_Customer
+- **products** : type TF_Vector< TF_Product >
+- **date** : type TF_String
+
+ **Constructors:**
+
+ - Default constructor.
+    ``` c++
+    TF_Order();
+    ``` 
+ - Parameterized constructor that takes in the orders's customer, products, date as arguments.
+    ``` c++
+    TF_Order(TF_Customer customer, TF_Vector<TF_Product> products, TF_String date);
+    ``` 
+ - Copy constructor that creates a new product object with the same values as an existing product object.
+    ``` c++
+    TF_Order(TF_Order &other);
+    ``` 
+  
+ **Destructor:**
+- Frees any dynamically allocated memory when an object of the class is destroyed. (trivial)
+    ``` c++
+    ~TF_Order();
+    ``` 
+
+ **Overloaded operators:**
+- The stream output operator, operator<<, which allows output of an object of class Order.
+    ``` c++
+    friend std::ostream &operator<<(std::ostream &out, const TF_Order &object);
+    ``` 
+
+ **Methods:**
+- Method that returns the total price of all products.
+    ``` c++
+    double orderTotal();
+    ``` 
+- Method that returns the total price after charge.
+    ``` c++
+    double addCharge(double charge);
+    ```  
+- Method that returns the remaining budget.
+    ``` c++
+    double verifyBudget(double value);
+    ```  
+---
+
 ### **TF_PaymentMethod**
 - represents an abstract base class for handling different payment methods.
 
-#### **Protected member variables:**
+**Protected member variables:**
 
 - **paymentDetails** : type TF_String
 - **isPaymentComplete** : type bool
 
-#### **Destructor:**
+ **Destructor:**
 - It ensures that when objects of derived classes are deleted through pointers to the base class PaymentMethod, the appropriate destructor of the derived class will be called, allowing for proper cleanup of any resources allocated in the derived classes. 
     ``` c++
     virtual ~TF_PaymentMethod();
     ``` 
 
-#### **Methods:**
+ **Methods:**
 - An abstract method that represents the process of processing a payment for a given amount.
     ``` c++
     virtual void processPayment(float amount) = 0;
@@ -480,7 +463,26 @@
     virtual TF_String getPaymentMethodName() = 0;
     ```
 ---
-### **Features**
+## **Interfaces**
+### **TF_DisplayInterface**
+- is a interface for TF_Product that displays the information based on the children type.
+  
+ **Virtual Destructor:**
+- It ensures that when objects of derived classes are deleted through pointers to the base class PaymentMethod, the appropriate destructor of the derived class will be called, allowing for proper cleanup of any resources allocated in the derived classes. 
+     ``` c++
+     virtual ~TF_DisplayInterface() {}
+     ```
+ **Pure virtual methods:**
+- A method that displays the information in row format.
+     ``` c++
+     virtual void displayRow() = 0;
+     ```
+- A method that displays the information in column format.
+     ``` c++
+     virtual void displayColumn() = 0;
+     ```
+---
+## **Features**
 TBA
 
 ---
@@ -521,12 +523,12 @@ Both TF_String and TF_Vector use Dynamic Allocation.
 1. Product Hierarchy - TF_Product -> TF_GraphicsCard, TF_Processor, TF_MotherBoard
 2. Payment Method Hierarchy - TF_PaymentMethod ->
 - [ ] At least two different access modifiers on the inherited class .
-- [ ] At least one class that uses multiple inheritance.
+- [X] At least one class that uses multiple inheritance.
 - [X] Call at least once a constructor (with parameters) from a base class, using an initialization list in the child class's constructor.
 - [X] At least two data members and at least one method with the protected access modifier.
   
 ### **Interfaces and Virtual Methods**
-- [ ] Define and extend at least one interface that has at least two methods.
+- [X] Define and extend at least one interface that has at least two methods.
 - [X] Define and extend at least one abstract base class.
 - [ ] Identify in the project at least one situation where the virtual destructor needs to be called.
 - [ ] Define at least four virtual methods that will be overridden in subclasses.

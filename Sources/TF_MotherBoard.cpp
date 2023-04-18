@@ -25,3 +25,20 @@ TF_MotherBoard::TF_MotherBoard(const TF_MotherBoard &other)
 /// Destructor
 
 TF_MotherBoard::~TF_MotherBoard() {}
+
+/// Methods
+
+/// display method in row
+void TF_MotherBoard::displayRow()
+{
+    std::cout << "Slots: " << slots << " -- Processor Socket: " << processor_socket << " -- Chipset: " << chipset << std::endl;
+}
+
+/// display method in column
+void TF_MotherBoard::displayColumn()
+{
+    std::cout << "Slots: " << slots << std::endl;
+    std::cout << "Processor Socket: " << processor_socket << std::endl;
+    std::cout << "Chipset: " << chipset << std::endl;
+    std::cout << std::endl;
+}

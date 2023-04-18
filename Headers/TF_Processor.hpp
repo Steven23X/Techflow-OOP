@@ -2,7 +2,7 @@
 #define _TF_PROCESSOR_HPP_
 #include "TechFlow.hpp"
 
-class TF_Processor : public TF_Product
+class TF_Processor : public TF_Product, public TF_DisplayInterface
 {
     /// Private Variables:
     int coreCount;
@@ -19,5 +19,7 @@ public:
     ~TF_Processor();
 
     /// Methods:
+    void displayRow() override;
+    void displayColumn() override;
 };
 #endif
