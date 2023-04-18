@@ -9,7 +9,7 @@ TF_GraphicsCard::TF_GraphicsCard()
     setType("GraphicsCard");
 }
 
-TF_GraphicsCard::TF_GraphicsCard(TF_String &name, double price, int memorySize, int coreClock, int boostClock)
+TF_GraphicsCard::TF_GraphicsCard(TF_String &name, double price, int memorySize, int coreClock, int memoryClock)
     : TF_Product(name, price), memorySize(memorySize), coreClock(coreClock), memoryClock(memoryClock)
 {
     setType("GraphicsCard");
@@ -32,8 +32,8 @@ TF_GraphicsCard::~TF_GraphicsCard() {}
 void TF_GraphicsCard::displayRow()
 {
     std::cout << "Memory Size: " << memorySize << "GB"
-              << " * Core Clock: " << coreClock << " * Memory Clock: "
-              << "MHz" << memoryClock << "MHz" << std::endl;
+              << " * Core Clock: " << coreClock << "MHz"
+              << " * Memory Clock: " << memoryClock << "MHz" << std::endl;
 }
 
 /// display method in column

@@ -530,13 +530,13 @@ Both TF_String and TF_Vector use Dynamic Allocation.
 ### **Interfaces and Virtual Methods**
 - [X] Define and extend at least one interface that has at least two methods.
 - [X] Define and extend at least one abstract base class.
-- [ ] Identify in the project at least one situation where the virtual destructor needs to be called.
+- [X] Identify in the project at least one situation where the virtual destructor needs to be called.
 - [ ] Define at least four virtual methods that will be overridden in subclasses.
 
 ### **Execution Polymorphism**
-- [ ] Identify at least four places where runtime polymorphism occurs.
-- [ ] Identify at least four instances of upcasting.
-- [ ] Perform downcasting in at least one situation in your code, using dynamic_cast or RTTI.
+- [X] Identify at least four places where runtime polymorphism occurs.
+- [X] Identify at least four instances of upcasting.
+- [X] Perform downcasting in at least one situation in your code, using dynamic_cast or RTTI.
 
 ### **Exceptions**
 - [ ] Define at least one custom exception type that extends std::exception.
