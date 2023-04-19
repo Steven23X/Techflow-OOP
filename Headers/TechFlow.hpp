@@ -15,5 +15,6 @@
 
 #include "TF_PaymentMethod.hpp"
 #include "TF_CreditCard.hpp"
+#include "TF_Cash.hpp"
 
 #endif

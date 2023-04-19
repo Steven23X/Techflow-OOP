@@ -240,6 +240,13 @@ int main()
                     TF_CreditCard creditcard(order, "", false, cardnumber, cardholdername);
                     creditcard.processPayment();
                 }
+
+                if (method == "cash")
+                {
+                    TF_Order order(customer, order_products, "");
+                    TF_Cash cash(order, "", false);
+                    cash.processPayment();
+                }
             }
             else
                 std::cout << "NOT Logged In!";

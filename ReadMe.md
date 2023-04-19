@@ -11,6 +11,7 @@
     - [**TF\_MotherBoard**](#tf_motherboard)
   - [**TF\_Order**](#tf_order)
   - [**TF\_PaymentMethod**](#tf_paymentmethod)
+    - [**TF\_Cash**](#tf_cash)
     - [**TF\_CreditCard**](#tf_creditcard)
 - [**Interfaces**](#interfaces)
   - [**TF\_DisplayInterface**](#tf_displayinterface)
@@ -472,6 +473,32 @@
     virtual TF_String getPaymentMethodName() = 0;
     ```
 ---
+#### **TF_Cash**
+- is a subclass of TF_PaymentMethod that takes the customers cash for checkout.
+
+**Constructors**
+
+- Creates objects.
+    ``` c++
+    TF_Cash();
+    TF_Cash(TF_Order order, TF_String paymentDetails, bool isPaymentComplete);
+    ``` 
+ **Destructor:**
+- Destroys object.
+    ``` c++
+    ~TF_Cash() {}
+    ``` 
+
+ **Methods:**
+-  method that represents the process of processing a payment.
+    ``` c++
+    void processPayment() override;
+    ``` 
+- Method that returns the name of the payment method.
+    ``` c++
+    TF_String getPaymentMethodName();
+    ```
+---
 #### **TF_CreditCard**
 - is a subclass of TF_PaymentMethod that takes the customers creditcard for checkout.
 
@@ -496,7 +523,7 @@
  **Methods:**
 -  method that represents the process of processing a payment.
     ``` c++
-    void processPayment() = 0;
+    void processPayment() override;
     ``` 
 - Method that returns the name of the payment method.
     ``` c++
