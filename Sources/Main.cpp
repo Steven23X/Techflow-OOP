@@ -221,7 +221,28 @@ int main()
 
         if (input == "checkout")
         {
-            
+            if (login)
+            {
+                std::cout << "Choose Payment Method : creditcard/cash " << std::endl;
+                std::string method;
+                std::cin >> method;
+                if (method == "creditcard")
+                {
+                    TF_Order order(customer, order_products, "");
+                    std::cout << "Enter Card Number:";
+                    TF_String cardnumber;
+                    std::cin >> cardnumber;
+                    std::cout << std::endl;
+                    std::cout << "Enter Card Holder Name:";
+                    TF_String cardholdername;
+                    std::cin >> cardholdername;
+                    std::cout << std::endl;
+                    TF_CreditCard creditcard(order, "", false, cardnumber, cardholdername);
+                    creditcard.processPayment();
+                }
+            }
+            else
+                std::cout << "NOT Logged In!";
         }
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::cout << std::endl;

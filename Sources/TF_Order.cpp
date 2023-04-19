@@ -58,7 +58,9 @@ double TF_Order::addCharge(double charge)
 double TF_Order::verifyBudget(double value)
 {
     double remainingBudget = customer.getBudget() - value;
+    /*
     if (remainingBudget < 0)
         std::cout << "OverBudget!" << std::endl;
+    */
     return remainingBudget;
 }

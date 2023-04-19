@@ -11,6 +11,7 @@
     - [**TF\_MotherBoard**](#tf_motherboard)
   - [**TF\_Order**](#tf_order)
   - [**TF\_PaymentMethod**](#tf_paymentmethod)
+    - [**TF\_CreditCard**](#tf_creditcard)
 - [**Interfaces**](#interfaces)
   - [**TF\_DisplayInterface**](#tf_displayinterface)
 - [**Features**](#features)
@@ -440,8 +441,16 @@
 
 **Protected member variables:**
 
+- **order** : type TF_Order
 - **paymentDetails** : type TF_String
 - **isPaymentComplete** : type bool
+**Constructors**
+
+- Creates objects.
+    ``` c++
+    TF_PaymentMethod();
+    TF_PaymentMethod(TF_Order order,TF_String paymentDetails,bool isPaymentComplete);
+    ``` 
 
  **Destructor:**
 - It ensures that when objects of derived classes are deleted through pointers to the base class PaymentMethod, the appropriate destructor of the derived class will be called, allowing for proper cleanup of any resources allocated in the derived classes. 
@@ -461,6 +470,37 @@
 - A protected abstract method that represents the name of the payment method.
     ``` c++
     virtual TF_String getPaymentMethodName() = 0;
+    ```
+---
+#### **TF_CreditCard**
+- is a subclass of TF_PaymentMethod that takes the customers creditcard for checkout.
+
+**Private member variables:**
+
+- **cardNumber** : type TF_String
+- **cardHolderName** : type TF_String
+
+**Constructors**
+
+- Creates objects.
+    ``` c++
+    TF_CreditCard();
+    TF_CreditCard(TF_Order order, TF_String paymentDetails, bool isPaymentComplete, TF_String cardNumber, TF_String cardHolderName);
+    ``` 
+ **Destructor:**
+- Destroys object.
+    ``` c++
+    ~TF_CreditCard(){}
+    ``` 
+
+ **Methods:**
+-  method that represents the process of processing a payment.
+    ``` c++
+    void processPayment() = 0;
+    ``` 
+- Method that returns the name of the payment method.
+    ``` c++
+    TF_String getPaymentMethodName();
     ```
 ---
 ## **Interfaces**
@@ -518,25 +558,41 @@ Both TF_String and TF_Vector use Dynamic Allocation.
 ## **Task 2**
 
 ### **Inheritance**
-- [ ] At least two different inheritance hierarchies.
-    
-1. Product Hierarchy - TF_Product -> TF_GraphicsCard, TF_Processor, TF_MotherBoard
-2. Payment Method Hierarchy - TF_PaymentMethod ->
-- [ ] At least two different access modifiers on the inherited class .
+- [X] At least two different inheritance hierarchies.    
+1. Product Hierarchy - TF_Product -> TF_GraphicsCard, TF_Processor, TF_MotherBoard.
+2. Payment Method Hierarchy - TF_PaymentMethod -> TF_CreditCard, TF_Cash.
+- [X] At least two different access modifiers on the inherited class .
+- public and protected.
+  
 - [X] At least one class that uses multiple inheritance.
+- TF_GraphicsCard, TF_Processor, TF_MotherBoard use TF_Product and the interface.
+  
 - [X] Call at least once a constructor (with parameters) from a base class, using an initialization list in the child class's constructor.
 - [X] At least two data members and at least one method with the protected access modifier.
+- In TF_PaymentMethod.
   
 ### **Interfaces and Virtual Methods**
 - [X] Define and extend at least one interface that has at least two methods.
+- TF_DisplayInterface.
+
 - [X] Define and extend at least one abstract base class.
+- TF_PaymentMethod.
+
 - [X] Identify in the project at least one situation where the virtual destructor needs to be called.
-- [ ] Define at least four virtual methods that will be overridden in subclasses.
+- When delete pointer after downcasting.
+
+- [X] Define at least four virtual methods that will be overridden in subclasses.
+- TF_DisplayInterface and TF_PaymentMethod.
 
 ### **Execution Polymorphism**
 - [X] Identify at least four places where runtime polymorphism occurs.
+- When using the interface.
+
 - [X] Identify at least four instances of upcasting.
+- Products of different types in vector.
+
 - [X] Perform downcasting in at least one situation in your code, using dynamic_cast or RTTI.
+- Getting Details of a Product.
 
 ### **Exceptions**
 - [ ] Define at least one custom exception type that extends std::exception.

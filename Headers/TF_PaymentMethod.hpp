@@ -8,6 +8,7 @@ class TF_PaymentMethod
 protected:
 
     /// Protected Variables:
+    TF_Order order;
     TF_String paymentDetails;
     bool isPaymentComplete;
 
@@ -15,8 +16,11 @@ protected:
     virtual TF_String getPaymentMethodName() = 0;
 
 public:
+    /// Constructors:
+    TF_PaymentMethod();
+    TF_PaymentMethod(TF_Order order,TF_String paymentDetails,bool isPaymentComplete);
     /// Public Methods:
-    virtual void processPayment(float amount) = 0;
+    virtual void processPayment() = 0;
     void displayPaymentInfo();
 
     /// Destructor
