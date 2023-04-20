@@ -15,6 +15,8 @@
     - [**TF\_CreditCard**](#tf_creditcard)
 - [**Interfaces**](#interfaces)
   - [**TF\_DisplayInterface**](#tf_displayinterface)
+- [**Exceptions**](#exceptions)
+  - [**TF\_Exception**](#tf_exception)
 - [**Features**](#features)
 - [**Task 1**](#task-1)
   - [**Classes**](#classes-1)
@@ -26,7 +28,7 @@
   - [**Inheritance**](#inheritance)
   - [**Interfaces and Virtual Methods**](#interfaces-and-virtual-methods)
   - [**Execution Polymorphism**](#execution-polymorphism)
-  - [**Exceptions**](#exceptions)
+  - [**Exceptions**](#exceptions-1)
   - [**Variables and Static Methods**](#variables-and-static-methods)
   - [**Smart Pointers and Lambda Expressions**](#smart-pointers-and-lambda-expressions)
 ---
@@ -106,8 +108,9 @@
 
  **Private member variables:**
 
-- **size** : type
-- **data** : type
+- **size** : type int
+- **data** : type T*
+- **indexCount** : type static int
 
  **Constructors:**
 
@@ -164,7 +167,14 @@
     ``` c++
     int getSize();
     ``` 
-
+- Static method to increment the index counter.
+    ``` c++
+    static void incrementIndexCounter();
+    ```
+- Static method to reset the index counter to 
+    ``` c++
+    static void resetIndexCounter();
+    ```
 ---
 ### **TF_Customer**
 - is a class that provides personal information about the customer.
@@ -549,6 +559,22 @@
      virtual void displayColumn() = 0;
      ```
 ---
+## **Exceptions**
+### **TF_Exception**
+- is a custom exception class.
+
+**Private member variables:**
+
+- **errorMessage** : type string
+
+**Methods:**
+- override from std::exception.
+  
+    ``` c++
+    explicit TF_Exception(const char *error_message);
+    const char *what() const noexcept override;
+    ```
+---
 ## **Features**
 TBA
 
@@ -628,8 +654,8 @@ Both TF_String and TF_Vector use Dynamic Allocation.
 - [X] Implement at least one try...catch block that catches an exception, processes it, and rethrows another type of exception from the catch block.
 
 ### **Variables and Static Methods**
-- [ ] Define a static member variable in at least one class.
-- [ ] Implement at least two static methods in your classes.
+- [X] Define a static member variable in at least one class.
+- [X] Implement at least two static methods in your classes.
 
 ### **Smart Pointers and Lambda Expressions**
 - [ ] Use smart pointers for dynamic allocations from your project instead of raw pointers with new and delete.

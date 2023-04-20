@@ -8,13 +8,17 @@ template <typename T>
 class TF_Vector
 {
     /// Private Variables:
+    static int indexCount;
     int size;
     T *data;
 
 public:
     /// Constructors:
     /// Default Constructor:
-    TF_Vector() : size(0), data(nullptr) {}
+    TF_Vector() : size(0), data(nullptr)
+    {
+        resetIndexCounter();
+    }
 
     /// Constructor with 2 parameters:
     TF_Vector(int ksize, T elem)
@@ -80,7 +84,10 @@ public:
     friend std::ostream &operator<<(std::ostream &out, const TF_Vector<T> &vector)
     {
         for (int i = 0; i < vector.size; i++)
-            out << i + 1 << ". " << vector.data[i];
+        {
+            out << indexCount << ". " << vector.data[i];
+            incrementIndexCounter();
+        }
         return out;
     }
 
@@ -138,6 +145,22 @@ public:
         }
         return data[index];
     }
+
+    /// Static Methods
+    // Static method to increment the index counter
+    static void incrementIndexCounter()
+    {
+        indexCount++;
+    }
+
+    // Static method to reset the index counter to 1
+    static void resetIndexCounter()
+    {
+        indexCount = 1;
+    }
 };
+
+template <typename T>
+int TF_Vector<T>::indexCount = 1;
 
 #endif
