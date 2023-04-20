@@ -1,6 +1,6 @@
 #ifndef _TF_ORDER_HPP
 
-#include "TechFlow.hpp"
+#include "../TechFlow.hpp"
 #include <iostream>
 
 class TF_Order

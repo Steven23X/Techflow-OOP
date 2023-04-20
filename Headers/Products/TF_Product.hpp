@@ -1,7 +1,7 @@
 #ifndef _TF_PRODUCT_HPP
 #define _TF_PRODUCT_HPP
 
-#include "TechFlow.hpp"
+#include "../TechFlow.hpp"
 #include <iostream>
 
 class TF_Product

@@ -1,11 +1,11 @@
 #ifndef _TF_CUSTOMER_HPP
 #define _TF_CUSTOMER_HPP
 
-#include "TechFlow.hpp"
+#include "../TechFlow.hpp"
 
 class TF_Customer
 {
-    /// Private Variables  
+    /// Private Variables
     TF_String first_name;
     TF_String last_name;
     TF_String address;
@@ -18,7 +18,7 @@ public:
     TF_Customer(TF_String &first_name, TF_String &last_name, TF_String &address, TF_String &email, double budget);
     TF_Customer(TF_Customer &other);
 
-    ///Destructor:
+    /// Destructor:
     ~TF_Customer();
 
     /// Operators:

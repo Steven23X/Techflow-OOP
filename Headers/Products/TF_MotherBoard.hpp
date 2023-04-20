@@ -1,6 +1,6 @@
 #ifndef _TF_MOTHERBOARD_HPP_
 #define _TF_MOTHERBOARD_HPP_
-#include "TechFlow.hpp"
+#include "../TechFlow.hpp"
 
 class TF_MotherBoard : public TF_Product, public TF_DisplayInterface
 {

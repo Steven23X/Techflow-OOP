@@ -1,20 +1,21 @@
 #ifndef _TECHFLOW_HPP
 #define _TECHFLOW_HPP
-#include "TF_DisplayInterface.hpp"
 
-#include "TF_String.hpp"
-#include "TF_Vector.hpp"
+#include "Interfaces/TF_DisplayInterface.hpp"
 
-#include "TF_Customer.hpp"
-#include "TF_Product.hpp"
-#include "TF_Order.hpp"
+#include "Core/TF_String.hpp"
+#include "Core/TF_Vector.hpp"
 
-#include "TF_GraphicsCard.hpp"
-#include "TF_Processor.hpp"
-#include "TF_MotherBoard.hpp"
+#include "Customers/TF_Customer.hpp"
+#include "Products/TF_Product.hpp"
+#include "Orders/TF_Order.hpp"
 
-#include "TF_PaymentMethod.hpp"
-#include "TF_CreditCard.hpp"
-#include "TF_Cash.hpp"
+#include "Products/TF_GraphicsCard.hpp"
+#include "Products/TF_Processor.hpp"
+#include "Products/TF_MotherBoard.hpp"
+
+#include "PaymentMethods/TF_PaymentMethod.hpp"
+#include "PaymentMethods/TF_CreditCard.hpp"
+#include "PaymentMethods/TF_Cash.hpp"
 
 #endif

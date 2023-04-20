@@ -1,6 +1,6 @@
 #ifndef _TF_PROCESSOR_HPP_
 #define _TF_PROCESSOR_HPP_
-#include "TechFlow.hpp"
+#include "../TechFlow.hpp"
 
 class TF_Processor : public TF_Product, public TF_DisplayInterface
 {

@@ -1,6 +1,6 @@
 #ifndef _TF_GRAPHICSCARD_HPP_
 #define _TF_GRAPHICSCARD_HPP_
-#include "TechFlow.hpp"
+#include "../TechFlow.hpp"
 
 class TF_GraphicsCard : public TF_Product,public TF_DisplayInterface
 {

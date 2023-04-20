@@ -1,6 +1,6 @@
 #ifndef _TF_DISPLAYINTERFACE_HPP_
 #define _TF_DISPLAYINTERFACE_HPP_
-#include "TechFlow.hpp"
+#include "../TechFlow.hpp"
 
 class TF_DisplayInterface
 {
