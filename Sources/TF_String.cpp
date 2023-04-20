@@ -72,6 +72,10 @@ std::istream &operator>>(std::istream &in, TF_String &s)
     const int buffSz = 1000;
     char buff[buffSz];
     in >> std::setw(buffSz) >> buff;
+    if (in.fail())
+    {
+        throw std::runtime_error("Input string is too large");
+    }
     s.str = new char[s.str_length(buff) + 1];
     s.str_copy(s.str, buff);
     return in;

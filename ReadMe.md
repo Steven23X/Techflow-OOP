@@ -623,7 +623,7 @@ Both TF_String and TF_Vector use Dynamic Allocation.
 
 ### **Exceptions**
 - [ ] Define at least one custom exception type that extends std::exception.
-- [ ] Throw exceptions in at least four different functions/methods.
+- [X] Throw exceptions in at least four different functions/methods.
 - [ ] Implement at least one try...catch block that catches an exception thrown and handles it in a specific way.
 - [ ] Implement at least one try...catch block that catches an exception, processes it, and rethrows another type of exception from the catch block.
 

@@ -20,6 +20,10 @@ public:
     TF_Vector(int ksize, T elem)
     {
         size = ksize;
+        if (size < 0)
+        {
+            throw std::invalid_argument("Size must be non-negative");
+        }
         data = new T[size];
         for (int i = 0; i < size; i++)
             data[i] = elem;
@@ -35,7 +39,7 @@ public:
     }
     /// Move Construtor:
     TF_Vector(TF_Vector &&other) noexcept : data(nullptr), size(0)
-    {   
+    {
         data = other.data;
         size = other.size;
         other.data = nullptr;
@@ -85,6 +89,10 @@ public:
     {
         std::cout << "N=";
         in >> vector.size;
+        if (vector.size < 0)
+        {
+            throw std::invalid_argument("Size must be non-negative");
+        }
         vector.data = new T[vector.size];
         for (int i = 0; i < vector.size; i++)
             in >> vector.data[i];
