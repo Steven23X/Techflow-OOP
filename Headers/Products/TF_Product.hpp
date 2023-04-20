@@ -19,7 +19,7 @@ public:
     TF_Product(const TF_Product &other);
 
     /// Destructor:
-    ~TF_Product();
+    virtual ~TF_Product();
 
     /// Operators:
     friend std::istream &operator>>(std::istream &in, TF_Product &object);

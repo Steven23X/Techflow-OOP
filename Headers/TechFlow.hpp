@@ -1,6 +1,7 @@
 #ifndef _TECHFLOW_HPP
 #define _TECHFLOW_HPP
 
+#include "Exceptions/TF_Exception.hpp"
 #include "Interfaces/TF_DisplayInterface.hpp"
 
 #include "Core/TF_String.hpp"

@@ -606,7 +606,7 @@ Both TF_String and TF_Vector use Dynamic Allocation.
 - TF_PaymentMethod.
 
 - [X] Identify in the project at least one situation where the virtual destructor needs to be called.
-- When delete pointer after downcasting.
+- When deleting pointer after downcasting.
 
 - [X] Define at least four virtual methods that will be overridden in subclasses.
 - TF_DisplayInterface and TF_PaymentMethod.
@@ -622,10 +622,10 @@ Both TF_String and TF_Vector use Dynamic Allocation.
 - Getting Details of a Product.
 
 ### **Exceptions**
-- [ ] Define at least one custom exception type that extends std::exception.
+- [X] Define at least one custom exception type that extends std::exception.
 - [X] Throw exceptions in at least four different functions/methods.
-- [ ] Implement at least one try...catch block that catches an exception thrown and handles it in a specific way.
-- [ ] Implement at least one try...catch block that catches an exception, processes it, and rethrows another type of exception from the catch block.
+- [X] Implement at least one try...catch block that catches an exception thrown and handles it in a specific way.
+- [X] Implement at least one try...catch block that catches an exception, processes it, and rethrows another type of exception from the catch block.
 
 ### **Variables and Static Methods**
 - [ ] Define a static member variable in at least one class.

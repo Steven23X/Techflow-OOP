@@ -7,6 +7,11 @@ TF_Customer::TF_Customer() : first_name(""), last_name(""), address(""), email("
 /// Constructor with five parameters:
 TF_Customer::TF_Customer(TF_String &first_name, TF_String &last_name, TF_String &address, TF_String &email, double budget)
 {
+    if (budget < 0)
+    {
+        throw TF_Exception("Error: Budget cannot be negative.");
+    }
+
     this->first_name = first_name;
     this->last_name = last_name;
     this->address = address;
@@ -40,6 +45,10 @@ std::istream &operator>>(std::istream &in, TF_Customer &object)
     in >> object.email;
     std::cout << "Enter Budget: ";
     in >> object.budget;
+    if (object.budget < 0)
+    {
+        throw TF_Exception("Error: Budget cannot be negative.");
+    }
     return in;
 }
 

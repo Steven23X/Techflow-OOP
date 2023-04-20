@@ -125,7 +125,15 @@ int main()
             {
                 std::cout << "Enter Personal Information:" << std::endl;
                 std::cout << std::endl;
-                std::cin >> customer;
+                try
+                {
+                    std::cin >> customer;
+                }
+                catch (const TF_Exception &ex)
+                {
+                    std::cerr << ex.what() << std::endl;
+                    break;
+                }
                 std::cout << std::endl;
                 std::cout << "Login Complete!";
                 login = true;
@@ -135,51 +143,64 @@ int main()
         }
         if (input == "details")
         {
-            std::cout << "Type Index of Product: ";
-            int index;
-            std::cin >> index;
-            if (index >= 6 && index <= 10)
+            try
             {
-                TF_GraphicsCard *derivedPtr = dynamic_cast<TF_GraphicsCard *>(TechFlow[index - 1]);
-                std::cout << "Choose display : row/column" << std::endl;
-                std::string display;
-                std::cin >> display;
-                std::cout << std::endl;
-                if (display == "row")
-                    derivedPtr->displayRow();
-                if (display == "column")
-                    derivedPtr->displayColumn();
-                delete derivedPtr;
-            }
+                std::cout << "Type Index of Product: ";
+                int index;
+                std::cin >> index;
+                if (index < 1 || index > 15)
+                {
 
-            if (index >= 1 && index <= 5)
-            {
-                TF_MotherBoard *derivedPtr = dynamic_cast<TF_MotherBoard *>(TechFlow[index - 1]);
-                std::cout << "Choose display : row/column" << std::endl;
-                std::string display;
-                std::cin >> display;
-                std::cout << std::endl;
-                if (display == "row")
-                    derivedPtr->displayRow();
-                if (display == "column")
-                    derivedPtr->displayColumn();
-                delete derivedPtr;
-            }
+                    throw TF_Exception("Invalid index. Index must be between 1 and 15.");
+                }
 
-            if (index >= 11 && index <= 15)
+                if (index >= 6 && index <= 10)
+                {
+                    TF_GraphicsCard *derivedPtr = dynamic_cast<TF_GraphicsCard *>(TechFlow[index - 1]);
+                    std::cout << "Choose display : row/column" << std::endl;
+                    std::string display;
+                    std::cin >> display;
+                    std::cout << std::endl;
+                    if (display == "row")
+                        derivedPtr->displayRow();
+                    if (display == "column")
+                        derivedPtr->displayColumn();
+                }
+
+                if (index >= 1 && index <= 5)
+                {
+                    TF_MotherBoard *derivedPtr = dynamic_cast<TF_MotherBoard *>(TechFlow[index - 1]);
+                    std::cout << "Choose display : row/column" << std::endl;
+                    std::string display;
+                    std::cin >> display;
+                    std::cout << std::endl;
+                    if (display == "row")
+                        derivedPtr->displayRow();
+                    if (display == "column")
+                        derivedPtr->displayColumn();
+                }
+
+                if (index >= 11 && index <= 15)
+                {
+                    TF_Processor *derivedPtr = dynamic_cast<TF_Processor *>(TechFlow[index - 1]);
+                    std::cout << "Choose display : row/column" << std::endl;
+                    std::string display;
+                    std::cin >> display;
+                    std::cout << std::endl;
+                    if (display == "row")
+                        derivedPtr->displayRow();
+                    if (display == "column")
+                        derivedPtr->displayColumn();
+                }
+            }
+            catch (const TF_Exception &ex)
             {
-                TF_Processor *derivedPtr = dynamic_cast<TF_Processor *>(TechFlow[index - 1]);
-                std::cout << "Choose display : row/column" << std::endl;
-                std::string display;
-                std::cin >> display;
-                std::cout << std::endl;
-                if (display == "row")
-                    derivedPtr->displayRow();
-                if (display == "column")
-                    derivedPtr->displayColumn();
-                delete derivedPtr;
+                std::cerr << "Caught TF_Exception: " << ex.what() << std::endl;
+
+                throw std::runtime_error("Caught TF_Exception: " + std::string(ex.what()));
             }
         }
+
         if (input == "buy")
         {
             if (login)
@@ -254,5 +275,16 @@ int main()
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::cout << std::endl;
     }
+    
+    delete product1;
+    delete product2;
+    delete product3;
+    delete product4;
+    delete product5;
+    delete product6;
+    delete product7;
+    delete product8;
+    delete product9;
+    delete product10;
     return 0;
 }
