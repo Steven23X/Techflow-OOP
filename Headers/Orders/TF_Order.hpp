@@ -2,6 +2,7 @@
 
 #include "../TechFlow.hpp"
 #include <iostream>
+#include <functional>
 
 class TF_Order
 {
@@ -25,7 +26,7 @@ public:
     /// Methods:
     double orderTotal();
     double addCharge(double charge);
-    double verifyBudget(double value);
+    double verifyBudget(double value, const std::function<void()> &overBudgetCallback, const std::function<void(double)> &remainingBudgetCallback);
 };
 
 #endif

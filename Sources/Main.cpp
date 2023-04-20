@@ -77,6 +77,41 @@ int main()
     int memoryclock10 = 15000;
     std::unique_ptr<TF_Product> product10 = std::make_unique<TF_GraphicsCard>(name10, price10, memorysize10, coreclock10, memoryclock10);
 
+    TF_String name11("AMD Ryzen 5 4500");
+    int price11 = 80;
+    int corecount11 = 6;
+    int coreclock11 = 4;
+    TF_String socket11 = "AM4";
+    std::unique_ptr<TF_Product> product11 = std::make_unique<TF_Processor>(name11, price11, corecount11, coreclock11, socket11);
+
+    TF_String name12("Intel Core i7-10700K");
+    int price12 = 350;
+    int corecount12 = 8;
+    int coreclock12 = 3;
+    TF_String socket12 = "LGA 1200";
+    std::unique_ptr<TF_Product> product12 = std::make_unique<TF_Processor>(name12, price12, corecount12, coreclock12, socket12);
+
+    TF_String name13("AMD Ryzen 3 3100");
+    int price13 = 120;
+    int corecount13 = 4;
+    int coreclock13 = 3;
+    TF_String socket13 = "AM4";
+    std::unique_ptr<TF_Product> product13 = std::make_unique<TF_Processor>(name13, price13, corecount13, coreclock13, socket13);
+
+    TF_String name14("Intel Core i5-9400F");
+    int price14 = 160;
+    int corecount14 = 6;
+    int coreclock14 = 2;
+    TF_String socket14 = "LGA 1151";
+    std::unique_ptr<TF_Product> product14 = std::make_unique<TF_Processor>(name14, price14, corecount14, coreclock14, socket14);
+
+    TF_String name15("AMD Ryzen 7 3700X");
+    int price15 = 300;
+    int corecount15 = 8;
+    int coreclock15 = 4;
+    TF_String socket15 = "AM4";
+    std::unique_ptr<TF_Product> product15 = std::make_unique<TF_Processor>(name15, price15, corecount15, coreclock15, socket15);
+
     TechFlow.pushback(product1.get());
     TechFlow.pushback(product2.get());
     TechFlow.pushback(product3.get());
@@ -87,6 +122,11 @@ int main()
     TechFlow.pushback(product8.get());
     TechFlow.pushback(product9.get());
     TechFlow.pushback(product10.get());
+    TechFlow.pushback(product11.get());
+    TechFlow.pushback(product12.get());
+    TechFlow.pushback(product13.get());
+    TechFlow.pushback(product14.get());
+    TechFlow.pushback(product15.get());
 
     std::cout << "Type 'help' to see commands." << std::endl;
     std::string input;
@@ -117,7 +157,7 @@ int main()
 
         if (input == "store")
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < TechFlow.getSize(); i++)
                 std::cout << i + 1 << ". " << *TechFlow[i] << std::endl;
         }
         if (input == "login")
@@ -206,7 +246,7 @@ int main()
         {
             if (login)
             {
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < TechFlow.getSize(); i++)
                     std::cout << i + 1 << ". " << *TechFlow[i] << std::endl;
                 std::cout << "How many products you want to buy?" << std::endl;
                 int number_of_products, index;

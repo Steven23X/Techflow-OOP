@@ -1,5 +1,6 @@
 #include "../Headers/TechFlow.hpp"
 #include <iostream>
+#include <functional>
 
 // Default constructor
 TF_Order::TF_Order() {}
@@ -55,12 +56,16 @@ double TF_Order::addCharge(double charge)
 }
 
 /// Method that returns the remaining budget:
-double TF_Order::verifyBudget(double value)
+double TF_Order::verifyBudget(double value, const std::function<void()> &overBudgetCallback, const std::function<void(double)> &remainingBudgetCallback)
 {
     double remainingBudget = customer.getBudget() - value;
-    /*
     if (remainingBudget < 0)
-        std::cout << "OverBudget!" << std::endl;
-    */
+    {
+        overBudgetCallback();
+    }
+    else
+    {
+        remainingBudgetCallback(remainingBudget);
+    }
     return remainingBudget;
 }

@@ -9,14 +9,21 @@ TF_CreditCard::TF_CreditCard(TF_Order order, TF_String paymentDetails, bool isPa
 void TF_CreditCard::processPayment()
 {
     std::cout << "Processing credit card payment... " << std::endl;
-    double card = order.verifyBudget(order.addCharge(0.02));
-    if (card < 0)
-        std::cout << "Card DECLINED! Not enough funds.";
-    else
+
+    auto overBudgetCallback = []()
     {
+        std::cout << "Card DECLINED! Not enough funds.";
+    };
+
+    auto remainingBudgetCallback = [](double remainingBudget)
+    {
+        std::cout << "Remaining Budget: " << remainingBudget << "$" << std::endl;
         std::cout << "Card ACCEPTED! Order Sent..";
+    };
+    double card = order.verifyBudget(order.addCharge(0.02), overBudgetCallback, remainingBudgetCallback);
+
+    if (card >= 0)
         isPaymentComplete = true;
-    }
     displayPaymentInfo();
 }
 

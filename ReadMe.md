@@ -659,4 +659,4 @@ Both TF_String and TF_Vector use Dynamic Allocation.
 
 ### **Smart Pointers and Lambda Expressions**
 - [X] Use smart pointers for dynamic allocations from your project instead of raw pointers with new and delete.
-- [ ] Use at least two lambda expressions to parameterize the functionality of a function or a class.
+- [X] Use at least two lambda expressions to parameterize the functionality of a function or a class.
