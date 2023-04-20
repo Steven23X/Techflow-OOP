@@ -1,7 +1,7 @@
 #include "../Headers/TechFlow.hpp"
 #include <iostream>
 #include <iomanip>
-
+#include <memory>
 /// Default Constructor:
 TF_String::TF_String() : str(nullptr) {}
 
@@ -10,8 +10,8 @@ TF_String::TF_String(const char *s)
 {
     if (s != nullptr)
     {
-        str = new char[str_length(s) + 1];
-        str_copy(str, s);
+        str = std::make_unique<char[]>(str_length(s) + 1);
+        str_copy(str.get(), s);
     }
     else
         str = nullptr;
@@ -22,8 +22,8 @@ TF_String::TF_String(const TF_String &other)
 {
     if (other.str != nullptr)
     {
-        str = new char[str_length(other.str) + 1];
-        str_copy(str, other.str);
+        str = std::make_unique<char[]>(str_length(other.str.get()) + 1);
+        str_copy(str.get(), other.str.get());
     }
     else
         str = nullptr;
@@ -32,23 +32,20 @@ TF_String::TF_String(const TF_String &other)
 /// Move Constructor:
 TF_String::TF_String(TF_String &&other) noexcept : str(nullptr)
 {
-    str = other.str;
+    str = std::move(other.str);
     other.str = nullptr;
 }
 
 /// Destructor:
-TF_String::~TF_String()
-{
-    delete[] str;
-}
+TF_String::~TF_String() {}
 
 /// '=' Operator redefined:
 void TF_String::operator=(const TF_String &op2)
 {
     if (op2.str != nullptr)
     {
-        str = new char[str_length(op2.str) + 1];
-        str_copy(str, op2.str);
+        str = std::make_unique<char[]>(str_length(op2.str.get()) + 1);
+        str_copy(str.get(), op2.str.get());
     }
     else
         str = nullptr;
@@ -59,8 +56,7 @@ TF_String &TF_String::operator=(TF_String &&other) noexcept
 {
     if (this != &other)
     {
-        delete[] str;
-        str = other.str;
+        str = std::move(other.str);
         other.str = nullptr;
     }
     return *this;
@@ -76,15 +72,15 @@ std::istream &operator>>(std::istream &in, TF_String &s)
     {
         throw std::runtime_error("Input string is too large");
     }
-    s.str = new char[s.str_length(buff) + 1];
-    s.str_copy(s.str, buff);
+    s.str = std::make_unique<char[]>(s.str_length(buff) + 1);
+    s.str_copy(s.str.get(), buff);
     return in;
 }
 
 /// '<<' Operator redefined:
 std::ostream &operator<<(std::ostream &out, const TF_String &s)
 {
-    out << s.str;
+    out << s.str.get();
     return out;
 }
 

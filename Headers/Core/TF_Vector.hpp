@@ -2,6 +2,7 @@
 #define _TF_VECTOR_HPP_
 
 #include <iostream>
+#include <memory>
 #include "../TechFlow.hpp"
 
 template <typename T>
@@ -10,7 +11,7 @@ class TF_Vector
     /// Private Variables:
     static int indexCount;
     int size;
-    T *data;
+    std::unique_ptr<T[]> data;
 
 public:
     /// Constructors:
@@ -28,7 +29,7 @@ public:
         {
             throw std::invalid_argument("Size must be non-negative");
         }
-        data = new T[size];
+        data = std::make_unique<T[]>(size);
         for (int i = 0; i < size; i++)
             data[i] = elem;
     }
@@ -37,7 +38,7 @@ public:
     TF_Vector(const TF_Vector<T> &other)
     {
         size = other.size;
-        data = new T[size];
+        data = std::make_unique<T[]>(size);
         for (int i = 0; i < size; i++)
             data[i] = other.data[i];
     }
@@ -51,17 +52,13 @@ public:
     }
 
     /// Destructor:
-    ~TF_Vector()
-    {
-        delete[] data;
-    }
+    ~TF_Vector() {}
 
     /// '=' Operator redefined:
     void operator=(const TF_Vector<T> &other)
     {
-        delete[] data;
         size = other.size;
-        data = new T[size];
+        data = std::make_unique<T[]>(size);
         for (int i = 0; i < size; i++)
             data[i] = other.data[i];
     }
@@ -71,11 +68,8 @@ public:
     {
         if (this != &other)
         {
-            delete[] data;
-            data = other.data;
+            data = std::move(other.data);
             size = other.size;
-
-            other.str = nullptr;
             other.size = 0;
         }
     }
@@ -100,7 +94,7 @@ public:
         {
             throw std::invalid_argument("Size must be non-negative");
         }
-        vector.data = new T[vector.size];
+        vector.data = std::make_unique<T[]>(vector.size);
         for (int i = 0; i < vector.size; i++)
             in >> vector.data[i];
         return in;
@@ -109,14 +103,13 @@ public:
     /// pushback <=> push_back
     void pushback(T elem)
     {
-        T *newData = new T[size + 1];
+        std::unique_ptr<T[]> newData = std::make_unique<T[]>(size + 1);
         for (int i = 0; i < size; i++)
         {
             newData[i] = data[i];
         }
         newData[size] = elem;
-        delete[] data;
-        data = newData;
+        data = std::move(newData);
         size++;
     }
 

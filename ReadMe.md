@@ -45,7 +45,7 @@
 
  **Private member variables:**
 
-- **str** : type char*
+- **str** : type std::unique_ptr<char[]>
 
  **Constructors:**
 
@@ -109,7 +109,7 @@
  **Private member variables:**
 
 - **size** : type int
-- **data** : type T*
+- **data** : type  std::unique_ptr<T[]> 
 - **indexCount** : type static int
 
  **Constructors:**
@@ -658,5 +658,5 @@ Both TF_String and TF_Vector use Dynamic Allocation.
 - [X] Implement at least two static methods in your classes.
 
 ### **Smart Pointers and Lambda Expressions**
-- [ ] Use smart pointers for dynamic allocations from your project instead of raw pointers with new and delete.
+- [X] Use smart pointers for dynamic allocations from your project instead of raw pointers with new and delete.
 - [ ] Use at least two lambda expressions to parameterize the functionality of a function or a class.

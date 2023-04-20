@@ -2,12 +2,13 @@
 #define _TF_STRING_HPP
 
 #include <iostream>
+#include <memory>
 #include "../TechFlow.hpp"
 
 class TF_String
 {
     /// Private Variables:
-    char *str;
+    std::unique_ptr<char[]> str;
 
 public:
     /// Constructors:
