@@ -22,4 +22,5 @@ public:
     void displayRow() override;
     void displayColumn() override;
 };
+
 #endif

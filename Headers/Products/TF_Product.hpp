@@ -28,7 +28,7 @@ public:
     /// Methods:
     void discount(int percentage);
     void discount(double percentage);
-    double getPrice();
+    double getPrice() const ;
     void setType(const TF_String &type);
 
     virtual void dummy() {}

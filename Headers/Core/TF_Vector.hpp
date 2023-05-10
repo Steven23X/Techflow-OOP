@@ -141,12 +141,12 @@ public:
 
     T *begin()
     {
-        return data;
+        return &data[0];
     }
 
     T *end()
     {
-        return data + size;
+        return &data[size];
     }
 
     /// Static Methods

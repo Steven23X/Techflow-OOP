@@ -1,10 +1,18 @@
 #include <iostream>
 #include <string>
+#include <vector>
+#include <map>
+#include <algorithm>
 #include <limits>
 #include <memory>
 #include <algorithm>
 #include <random>
 #include "../Headers/TechFlow.hpp"
+
+bool compareByPrice(const TF_Product *a, const TF_Product *b)
+{
+    return a->getPrice() < b->getPrice();
+}
 
 int main()
 {
@@ -131,6 +139,26 @@ int main()
     TechFlow.pushback(product14.get());
     TechFlow.pushback(product15.get());
 
+    std::vector<TF_MotherBoard *> motherboards;
+    std::vector<TF_GraphicsCard *> graphicscards;
+    std::vector<TF_Processor *> processors;
+
+    for (const TF_Product *product : TechFlow)
+    {
+        if (const TF_MotherBoard *motherboard = dynamic_cast<const TF_MotherBoard *>(product))
+        {
+            motherboards.push_back(const_cast<TF_MotherBoard *>(motherboard));
+        }
+        else if (const TF_GraphicsCard *graphicscard = dynamic_cast<const TF_GraphicsCard *>(product))
+        {
+            graphicscards.push_back(const_cast<TF_GraphicsCard *>(graphicscard));
+        }
+        else if (const TF_Processor *processor = dynamic_cast<const TF_Processor *>(product))
+        {
+            processors.push_back(const_cast<TF_Processor *>(processor));
+        }
+    }
+
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_int_distribution<int> dist(0, TechFlow.getSize() - 1);
@@ -158,9 +186,11 @@ int main()
             std::cout << "'details' : display details of a specific product" << std::endl;
             std::cout << "'login' : login into account as a customer" << std::endl;
             std::cout << "'buy' : buy products from the store" << std::endl;
-            std::cout << "'order' : shows your cart" << std::endl;
+            std::cout << "'order' : show your cart" << std::endl;
             std::cout << "'checkout' : proceed to checkout" << std::endl;
             std::cout << "'random' : show random product" << std::endl;
+            std::cout << "'sort' : sort the products of a category by price" << std::endl;
+            std::cout << "'price_category' : show products based on price range" << std::endl;
         }
 
         if (input == "store")
@@ -325,6 +355,83 @@ int main()
         {
             int randomIndex = dist(gen);
             std::cout << "Random Product: " << *TechFlow[randomIndex] << std::endl;
+        }
+
+        if (input == "sort")
+        {
+            std::cout << "Choose Category : motherboard/processor/graphicscard " << std::endl;
+            std::string category;
+            std::cin >> category;
+
+            if (category == "motherboard")
+            {
+                std::sort(motherboards.begin(), motherboards.end(), compareByPrice);
+                for (const TF_MotherBoard *motherboard : motherboards)
+                {
+                    std::cout << *motherboard;
+                }
+            }
+            if (category == "processor")
+            {
+                std::sort(processors.begin(), processors.end(), compareByPrice);
+                for (const TF_Processor *processor : processors)
+                {
+                    std::cout << *processor;
+                }
+            }
+            if (category == "graphicscard")
+            {
+                std::sort(graphicscards.begin(), graphicscards.end(), compareByPrice);
+                for (const TF_GraphicsCard *graphicscard : graphicscards)
+                {
+                    std::cout << *graphicscard;
+                }
+            }
+        }
+
+        if (input == "price_category")
+        {
+            std::sort(TechFlow.begin(), TechFlow.end(), compareByPrice);
+            std::map<std::string, std::vector<TF_Product *>> productsByCategory;
+            productsByCategory["Price Range : 0$ - 200$"];
+            productsByCategory["Price Range : 200$ - 400$"];
+            productsByCategory["Price Range : 400$ - inf$"];
+            for (const TF_Product *product : TechFlow)
+            {
+                int price = product->getPrice();
+
+                if (price < 200)
+                {
+                    productsByCategory["Price Range : 0$ - 200$"].push_back(const_cast<TF_Product *>(product));
+                }
+                else if (price >= 200 && price < 400)
+                {
+                    productsByCategory["Price Range : 200$ - 400$"].push_back(const_cast<TF_Product *>(product));
+                }
+                else
+                {
+                    productsByCategory["Price Range : 400$ - inf$"].push_back(const_cast<TF_Product *>(product));
+                }
+            }
+
+            for (const auto &entry : productsByCategory)
+            {
+                std::cout << "Price Category: " << entry.first << std::endl;
+
+                if (entry.second.empty())
+                {
+                    std::cout << "No products in this category." << std::endl;
+                }
+                else
+                {
+                    for (const TF_Product *product : entry.second)
+                    {
+                        std::cout << *product;
+                    }
+                }
+
+                std::cout << std::endl;
+            }
         }
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::cout << std::endl;

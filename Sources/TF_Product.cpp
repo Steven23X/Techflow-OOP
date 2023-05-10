@@ -63,7 +63,7 @@ void TF_Product::discount(double percentage)
 }
 
 /// getter for price
-double TF_Product::getPrice()
+double TF_Product::getPrice() const
 {
     return price;
 }

@@ -683,8 +683,8 @@ Both TF_String and TF_Vector use Dynamic Allocation.
 - The original class(TF_PaymentMethod), called context, must have a field for storing a reference to one of the strategies (TF_CreditCard, TF_Cash). The context delegates the work to a linked strategy object instead of executing it on its own.
 
 ### **Standard Library**
-- [ ] Use at least two different container data types from the STL.
-- [ ] Use at least one utility function from the standard library.
+- [X] Use at least two different container data types from the STL. - vector and map
+- [X] Use at least one utility function from the standard library. - sort
 
 ### **Smart Pointers**
 - [X] Replace manual dynamic allocation with smart pointers.
