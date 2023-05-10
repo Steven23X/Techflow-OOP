@@ -139,6 +139,16 @@ public:
         return data[index];
     }
 
+    T *begin()
+    {
+        return data;
+    }
+
+    T *end()
+    {
+        return data + size;
+    }
+
     /// Static Methods
     // Static method to increment the index counter
     static void incrementIndexCounter()

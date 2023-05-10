@@ -690,6 +690,7 @@ Both TF_String and TF_Vector use Dynamic Allocation.
 - [X] Replace manual dynamic allocation with smart pointers.
 
 ### **Const and Utility Library**
-- [ ] Use the const modifier correctly wherever possible and meaningful in the program.
-- [ ] Use a utility library from the standard library.
+- [X] Use the const modifier correctly wherever possible and meaningful in the program.
+- [X] Use a utility library from the standard library.
+- Used <random> for choosing a random product in the store. 
 

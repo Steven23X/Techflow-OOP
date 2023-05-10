@@ -2,7 +2,10 @@
 #include <string>
 #include <limits>
 #include <memory>
+#include <algorithm>
+#include <random>
 #include "../Headers/TechFlow.hpp"
+
 int main()
 {
     /// Populating TechFlow Store
@@ -128,6 +131,10 @@ int main()
     TechFlow.pushback(product14.get());
     TechFlow.pushback(product15.get());
 
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> dist(0, TechFlow.getSize() - 1);
+
     std::cout << "Type 'help' to see commands." << std::endl;
     std::string input;
     bool login = false;
@@ -153,6 +160,7 @@ int main()
             std::cout << "'buy' : buy products from the store" << std::endl;
             std::cout << "'order' : shows your cart" << std::endl;
             std::cout << "'checkout' : proceed to checkout" << std::endl;
+            std::cout << "'random' : show random product" << std::endl;
         }
 
         if (input == "store")
@@ -312,6 +320,11 @@ int main()
             }
             else
                 std::cout << "NOT Logged In!";
+        }
+        if (input == "random")
+        {
+            int randomIndex = dist(gen);
+            std::cout << "Random Product: " << *TechFlow[randomIndex] << std::endl;
         }
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::cout << std::endl;
