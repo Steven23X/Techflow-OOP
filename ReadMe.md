@@ -31,6 +31,12 @@
   - [**Exceptions**](#exceptions-1)
   - [**Variables and Static Methods**](#variables-and-static-methods)
   - [**Smart Pointers and Lambda Expressions**](#smart-pointers-and-lambda-expressions)
+- [**Task 3**](#task-3)
+  - [**Generic Programming**](#generic-programming)
+  - [**Design Patterns**](#design-patterns)
+  - [**Standard Library**](#standard-library)
+  - [**Smart Pointers**](#smart-pointers)
+  - [**Const and Utility Library**](#const-and-utility-library)
 ---
 ## **Description**
 **TechFlow** is an object-oriented program that simulates a basic online store that sells computer-related products. The program is written in C++ and follows the principle of encapsulation.
@@ -660,3 +666,30 @@ Both TF_String and TF_Vector use Dynamic Allocation.
 ### **Smart Pointers and Lambda Expressions**
 - [X] Use smart pointers for dynamic allocations from your project instead of raw pointers with new and delete.
 - [X] Use at least two lambda expressions to parameterize the functionality of a function or a class.
+  
+---
+
+## **Task 3**
+
+### **Generic Programming**
+- [X] Use at least one user-defined template class. (TF_Vector)
+- [X] Define and call at least one template function.
+- [X]  Use the template class and function defined above in at least one place in your project.
+
+### **Design Patterns**
+- [X] Choose a pattern that is either already implemented in your project 
+- Strategy Pattern : Payment Method Hierarchy - TF_PaymentMethod -> TF_CreditCard, TF_Cash.
+- The Strategy pattern suggests that you take a class that does something specific in a lot of different ways and extract all of these algorithms into separate classes called strategies.
+- The original class(TF_PaymentMethod), called context, must have a field for storing a reference to one of the strategies (TF_CreditCard, TF_Cash). The context delegates the work to a linked strategy object instead of executing it on its own.
+
+### **Standard Library**
+- [ ] Use at least two different container data types from the STL.
+- [ ] Use at least one utility function from the standard library.
+
+### **Smart Pointers**
+- [X] Replace manual dynamic allocation with smart pointers.
+
+### **Const and Utility Library**
+- [ ] Use the const modifier correctly wherever possible and meaningful in the program.
+- [ ] Use a utility library from the standard library.
+
