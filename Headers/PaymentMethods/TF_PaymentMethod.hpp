@@ -18,7 +18,7 @@ protected:
 public:
     /// Constructors:
     TF_PaymentMethod();
-    TF_PaymentMethod(TF_Order order,TF_String paymentDetails,bool isPaymentComplete);
+    TF_PaymentMethod(const TF_Order& order,TF_String paymentDetails,bool isPaymentComplete);
     /// Public Methods:
     virtual void processPayment() = 0;
     void displayPaymentInfo();

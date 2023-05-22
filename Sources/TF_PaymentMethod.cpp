@@ -3,7 +3,7 @@
 
 TF_PaymentMethod::TF_PaymentMethod() : order(), paymentDetails(), isPaymentComplete(false) {}
 
-TF_PaymentMethod::TF_PaymentMethod(TF_Order order, TF_String paymentDetails, bool isPaymentComplete)
+TF_PaymentMethod::TF_PaymentMethod(const TF_Order& order, TF_String paymentDetails, bool isPaymentComplete)
 {
     this->order = order;
     this->paymentDetails = paymentDetails;
@@ -17,4 +17,4 @@ void TF_PaymentMethod::displayPaymentInfo()
     std::cout << "Payment status: " << (isPaymentComplete ? "Complete" : "Incomplete") << std::endl;
 }
 
-TF_PaymentMethod::~TF_PaymentMethod() {}
+TF_PaymentMethod::~TF_PaymentMethod() = default;

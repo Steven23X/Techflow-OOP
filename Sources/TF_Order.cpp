@@ -1,12 +1,11 @@
 #include "../Headers/TechFlow.hpp"
 #include <iostream>
-#include <functional>
 
 // Default constructor
-TF_Order::TF_Order() {}
+TF_Order::TF_Order() = default;
 
 // Constructor with 3 parameters.
-TF_Order::TF_Order(TF_Customer customer, TF_Vector<TF_Product> products, TF_String date)
+TF_Order::TF_Order(const TF_Customer& customer, TF_Vector<TF_Product> products, TF_String date)
 {
     this->customer = customer;
     this->products = products;
@@ -22,7 +21,7 @@ TF_Order::TF_Order(TF_Order &other)
 }
 
 // Destructor
-TF_Order::~TF_Order() {}
+TF_Order::~TF_Order() = default;
 
 /// '<<' Operator redefined:
 std::ostream &operator<<(std::ostream &out, const TF_Order &object)

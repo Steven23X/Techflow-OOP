@@ -5,7 +5,6 @@
 #include <algorithm>
 #include <limits>
 #include <memory>
-#include <algorithm>
 #include <random>
 #include "../Headers/TechFlow.hpp"
 
@@ -16,6 +15,8 @@ bool compareByPrice(const TF_Product *a, const TF_Product *b)
 
 int main()
 {
+    TF_Product* productFactory = TF_Product::newProduct("graphicscard");
+
     /// Populating TechFlow Store
     TF_Vector<TF_Product *> TechFlow;
     TF_String name1("ASUS ROG Strix Z590-E");
@@ -138,6 +139,7 @@ int main()
     TechFlow.pushback(product13.get());
     TechFlow.pushback(product14.get());
     TechFlow.pushback(product15.get());
+    TechFlow.pushback(productFactory);
 
     std::vector<TF_MotherBoard *> motherboards;
     std::vector<TF_GraphicsCard *> graphicscards;

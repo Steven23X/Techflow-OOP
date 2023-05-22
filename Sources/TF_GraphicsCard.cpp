@@ -1,6 +1,5 @@
 #include "../Headers/TechFlow.hpp"
 #include <iostream>
-#include <string>
 
 /// Constructors
 TF_GraphicsCard::TF_GraphicsCard()
@@ -24,7 +23,7 @@ TF_GraphicsCard::TF_GraphicsCard(const TF_GraphicsCard &other)
 }
 
 /// Destructor
-TF_GraphicsCard::~TF_GraphicsCard() {}
+TF_GraphicsCard::~TF_GraphicsCard() = default;
 
 /// Methods
 

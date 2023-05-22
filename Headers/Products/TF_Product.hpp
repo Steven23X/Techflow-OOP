@@ -31,6 +31,9 @@ public:
     double getPrice() const ;
     void setType(const TF_String &type);
 
+    static TF_Product* newProduct(std::string productName);
+
+
     virtual void dummy() {}
 };
 #endif

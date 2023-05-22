@@ -14,7 +14,7 @@ class TF_Order
 public:
     /// Constructors:
     TF_Order();
-    TF_Order(TF_Customer customer, TF_Vector<TF_Product> products, TF_String date);
+    TF_Order(const TF_Customer& customer, TF_Vector<TF_Product> products, TF_String date);
     TF_Order(TF_Order &other);
 
     /// Destructor:

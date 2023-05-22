@@ -24,7 +24,7 @@ TF_MotherBoard::TF_MotherBoard(const TF_MotherBoard &other)
 
 /// Destructor
 
-TF_MotherBoard::~TF_MotherBoard() {}
+TF_MotherBoard::~TF_MotherBoard() = default;
 
 /// Methods
 

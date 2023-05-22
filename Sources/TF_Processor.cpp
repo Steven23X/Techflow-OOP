@@ -23,7 +23,7 @@ TF_Processor::TF_Processor(const TF_Processor &other)
 
 /// Destructor
 
-TF_Processor::~TF_Processor() {}
+TF_Processor::~TF_Processor() = default;
 
 /// Methods
 

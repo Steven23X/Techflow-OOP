@@ -27,7 +27,7 @@ TF_Product::TF_Product(const TF_Product &other)
 }
 
 /// Default Destructor (trivial)
-TF_Product::~TF_Product() {}
+TF_Product::~TF_Product() = default;
 
 /// '>>' Operator redefined:
 std::istream &operator>>(std::istream &in, TF_Product &object)
@@ -72,4 +72,16 @@ double TF_Product::getPrice() const
 void TF_Product::setType(const TF_String &type)
 {
     this->type = type;
+}
+/// factory
+
+TF_Product *TF_Product::newProduct(std::string productName)
+{
+    if (productName == "graphicscard")
+        return new TF_GraphicsCard;
+    if (productName == "processor")
+        return new TF_Processor;
+    if (productName == "motherboard")
+        return new TF_MotherBoard;
+    throw(std::runtime_error("Can't create product!"));
 }

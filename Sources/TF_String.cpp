@@ -37,7 +37,7 @@ TF_String::TF_String(TF_String &&other) noexcept : str(nullptr)
 }
 
 /// Destructor:
-TF_String::~TF_String() {}
+TF_String::~TF_String() = default;
 
 /// '=' Operator redefined:
 void TF_String::operator=(const TF_String &op2)
